@@ -42,7 +42,7 @@
     <div class="mx-auto px-2 sm:px-4 lg:px-8">
       
         <!-- Logo -->
-        <div class="absolute shrink-0 flex ml-24 mt-2" data-aos="fade-down-right">
+        <div class="absolute shrink-0 flex md:ml-0 lg:ml-24 mt-2" data-aos="fade-down-right">
             <a href="{{ route('inicio') }}">
                 <x-jet-application-mark class="block h-9 w-auto" />
             </a>
@@ -60,6 +60,7 @@
                         <x-jet-nav-link href="{{ $link['route'] }}" :active="$link['active']">
                             {{$link['name']}}
                         </x-jet-nav-link>
+                        
 
                     @endforeach
 
