@@ -4,7 +4,7 @@
         <div class="max-w-500 mx-auto px-4 sm:px-6 lg:px-8 mb-16">
 
             <div class="text-center">
-                <h1 class="text-6xl font-bold color-texto">Nuestros <span class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">SERVICIOS</span></h1>
+                <h1 class="sm:text-3xl md:text-6xl font-bold color-texto">Nuestros <span class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">SERVICIOS</span></h1>
 
                 {{-- Efecto CSS public -> asset -> css -> efectos.css--}}
                 <div class="circle-container mt-4">
@@ -19,6 +19,9 @@
             </div>
 
             <div class="mt-12">
+                <div>
+                    <img class="absolute w-1/2 right-0 top-3/4 opacity-5" src="{{asset('assets/img/circle.svg')}}" alt="Blob">
+                </div>
 
                 <div class="glider-contain">
                     <ul class="glider">
@@ -44,28 +47,6 @@
                     <button aria-label="Next" class="glider-next">»</button>
                     <div role="tablist" class="dots"></div>
                 </div>
-                
-
-
-                {{-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                    @foreach ($servicios as $servicio)
-
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white flex flex-col justify-between">
-                            <div class="px-6 py-4">                                
-                                <h1 class="text-2xl font-bold bg-gradient-to-r from-violet-600 to-fuchsia-700 bg-clip-text text-transparent mb-4">{{ $servicio->titulo}}</h1>
-                                <p class="text-gray-600 text-lg">
-                                    {{ $servicio->descripcion}}
-                                </p>
-                            </div>
-                            <div
-                            class="px-6 pt-4 pb-6 bg-gradient-to-r from-black to-gray-800 flex justify-center items-end">
-                            <a href="#" class="text-lg font-semibold text-white hover:text-purple-500">Ver más</a>
-                        </div>
-                    </div>
-                    @endforeach
-
-                </div> --}}
             </div>
 
             <div class="text-center py-16">

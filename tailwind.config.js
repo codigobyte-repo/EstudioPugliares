@@ -18,6 +18,11 @@ module.exports = {
 
             colors: {
                 blueDark: '#111722',
+                primary: '#1E40AF',
+                secondary: '#047857',
+                danger: '#DC2626',
+                warning: '#F59E0B',
+                success: '#10B981',
             },
 
             fontFamily: {

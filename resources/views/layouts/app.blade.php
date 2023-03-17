@@ -7,7 +7,7 @@
         <meta name="description" content="En Estudio Pugliares, ofrecemos servicios contables profesionales para empresas y particulares. Nuestro equipo de expertos contadores trabaja diligentemente para proporcionar a nuestros clientes soluciones contables y financieras personalizadas, incluyendo contabilidad básica, preparación de impuestos, planificación fiscal estratégica y consultoría financiera. Nuestro objetivo es proporcionar un servicio excepcional a nuestros clientes de manera ética y responsable. ¡Contáctenos hoy para obtener más información y ver cómo podemos ayudarlo a alcanzar sus objetivos financieros!">
         <meta name="keywords" content="Servicios contables, Planificación tributaria, Auditoría Financiera, Contabilidad empresarial, Asesoría fiscal, Preparación de impuestos, Consultoría financiera, Planificación fiscal estratégica, Gestión de finanzas personales, Servicios de nómina, Auditoría financiera"> 
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Estudio Pugliares - Servicios Contables</title>
 
         <!-- Fonts -->
         {{-- <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
@@ -50,13 +50,14 @@
 
     <body class="montserrat antialiased">
 
-        <div class="bg-gradient-to-r from-black to-gray-800">
+        <div class="bg-white">
             
             @livewire('navigation-menu')
 
             <main>
                 {{ $slot }}
             </main>
+            
         </div>
 
         @stack('modals')

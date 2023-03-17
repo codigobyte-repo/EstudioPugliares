@@ -64,7 +64,7 @@
     text-align: center;
     color: #ddd;
     opacity: 0.02;
-    font-size: 4em;
+    font-size: 2em;
 }
 
 .effect-text span{
@@ -123,7 +123,7 @@
 .loading-spinner {
     position: absolute;
     right: 5%;
-    margin-top: 8%;
+    margin-top: 18%;
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -138,3 +138,14 @@
       transform: rotate(360deg);
     }
   }
+
+  .box {
+    position: relative;
+    width: 800px;
+}
+
+
+.points{
+    width: 18%; 
+    left: 5%;    
+}

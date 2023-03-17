@@ -1,3 +1,87 @@
+/* Efecto que escribe y borra texto */
+const cambioTexto = document.getElementById('cambio-texto');
+
+const textos = ['Logro ', 'Triunfo', 'Éxito '];
+let indice = 0;
+let estado = 'escribiendo';
+let textoActual = '';
+
+function escribirTexto() {
+    textoActual = textos[indice].substring(0, textoActual.length + 1);
+    cambioTexto.textContent = textoActual;
+
+    if (textoActual === textos[indice]) {
+        estado = 'borrando';
+        setTimeout(borrarTexto, 1000);
+    } else {
+        setTimeout(escribirTexto, 100);
+    }
+}
+
+function borrarTexto() {
+    textoActual = textos[indice].substring(0, textoActual.length - 1);
+    cambioTexto.textContent = textoActual;
+
+    if (textoActual === '') {
+        estado = 'escribiendo';
+        indice++;
+
+        if (indice === textos.length) {
+            indice = 0;
+        }
+
+        setTimeout(escribirTexto, 500);
+    } else {
+        setTimeout(borrarTexto, 100);
+    }
+}
+
+escribirTexto();
+
+
+/* Glider */
+new Glider(document.querySelector('.glider'), {
+    slidesToShow: 1.5,
+    slidesToScroll: 1,
+    draggable: true,
+    dots: '.dots',
+    arrows: {
+      prev: '.glider-prev',
+      next: '.glider-next'
+    },
+    responsive: [
+        {
+            breakpoint: 640,
+            settings: {
+                slidesToShow: 1.5,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1.5,
+                slidesToScroll: 2,
+            }
+        },
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 2.5,
+                slidesToScroll: 2,
+            }
+        },
+        {
+            breakpoint: 1280,
+            settings: {
+                slidesToShow: 3.5,
+                slidesToScroll: 3,
+            }
+        },
+    ]
+});
+
+
 /* Particulas Js */
 particlesJS('particles-js', {
     "particles": {
@@ -27,7 +111,7 @@ particlesJS('particles-js', {
             }
         },
         "opacity": {
-            "value": 0.3,
+            "value": 0.2,
             "random": true,
             "anim": {
                 "enable": false,
@@ -108,115 +192,4 @@ particlesJS('particles-js', {
         }
     },
     "retina_detect": true
-});
-
-
-/* Efecto que escribe y borra texto */
-/* const cambioTexto = document.getElementById('cambio-texto');
-
-const textos = ['Logro', 'Bienestar', 'Éxito'];
-let indice = 0;
-let estado = 'escribiendo';
-let textoActual = '';
-
-function escribirTexto() {
-    textoActual = textos[indice].substring(0, textoActual.length + 1);
-    cambioTexto.textContent = textoActual;
-
-    if (textoActual === textos[indice]) {
-        estado = 'borrando';
-        setTimeout(borrarTexto, 1000);
-    } else {
-        setTimeout(escribirTexto, 100);
-    }
-}
-
-function borrarTexto() {
-    textoActual = textos[indice].substring(0, textoActual.length - 1);
-    cambioTexto.textContent = textoActual;
-
-    if (textoActual === '') {
-        estado = 'escribiendo';
-        indice++;
-
-        if (indice === textos.length) {
-            indice = 0;
-        }
-
-        setTimeout(escribirTexto, 500);
-    } else {
-        setTimeout(borrarTexto, 100);
-    }
-}
-
-escribirTexto(); */
-
-    function cambiarTexto() {
-        var palabras = ["Logro", "Bienestar", "Éxito"];
-        var indice = 0;
-        var span = document.getElementById("cambio-texto");
-
-        setInterval(function() {
-            span.classList.add("animate__animated", "animate__fadeOutUp");
-            setTimeout(function() {
-                span.innerText = palabras[indice];
-                span.classList.remove("animate__fadeOutUp");
-                span.classList.add("animate__fadeInDown");
-                setTimeout(function() {
-                    span.classList.remove("animate__fadeInDown");
-                }, 1000);
-            }, 500);
-            
-            indice++;
-            if (indice >= palabras.length) {
-                indice = 0;
-            }
-        }, 3000);
-    }
-
-    if (window.innerWidth >= 1024) {
-        cambiarTexto();
-    }
-
-
-/* Glider */
-new Glider(document.querySelector('.glider'), {
-    slidesToShow: 1.5,
-    slidesToScroll: 1,
-    draggable: true,
-    dots: '.dots',
-    arrows: {
-      prev: '.glider-prev',
-      next: '.glider-next'
-    },
-    responsive: [
-        {
-            breakpoint: 640,
-            settings: {
-                slidesToShow: 1.5,
-                slidesToScroll: 1,
-            }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1.5,
-                slidesToScroll: 2,
-            }
-        },
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2.5,
-                slidesToScroll: 2,
-            }
-        },
-        {
-            breakpoint: 1280,
-            settings: {
-                slidesToShow: 3.5,
-                slidesToScroll: 3,
-            }
-        },
-    ]
 });
