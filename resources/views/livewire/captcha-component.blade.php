@@ -34,7 +34,7 @@
                 <div class="flex flex-row my-4">
                     <div class="mr-2">
                         {{ $num1 }} + {{ $num2 }} =
-                        <input type="text" id="captcha" name="captcha" wire:model="captcha">
+                        <input type="text" id="captcha" name="captcha" placeholder="Resultado" wire:model="captcha">
                         <br/>
                         @error('captcha') <span class="text-red-600 text-xs font-semibold">{{ $message }}</span> @enderror
                     </div>
@@ -43,6 +43,7 @@
                 </div>
                 
                 <div class="text-center">
+                    
                     <button type="button" wire:click="submit" class="block w-full bg-purple-500 text-white text-lg font-light py-4 px-4 rounded focus:outline-none focus:shadow-outline">
                         Solicitar Asesoramiento
                     </button>
