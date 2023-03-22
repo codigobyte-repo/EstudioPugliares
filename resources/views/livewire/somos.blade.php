@@ -64,7 +64,7 @@
                             <div class="-mx-6 lg:col-span-2 lg:mx-0">
                                 <div class="swiper-container !overflow-hidden">
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide cursor-grab">
                                             <blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-bl-lg rounded-tr-lg">
                                                 <div>
                                                     <div class="mt-4">
@@ -85,7 +85,7 @@
                                             </blockquote>
                                         </div>
 
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide cursor-grab">
                                             <blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-bl-lg rounded-tr-lg">
                                                 <div>
                                                     <div class="mt-4">
@@ -109,7 +109,7 @@
                                             </blockquote>
                                         </div>
 
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide cursor-grab">
                                             <blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-bl-lg rounded-tr-lg">
                                                 <div>
                                                     <div class="mt-4">
