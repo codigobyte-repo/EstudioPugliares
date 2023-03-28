@@ -20,5 +20,8 @@ class UserSeeder extends Seeder
             'email' => 'maquino@codigobyte.com.ar',
             'password' => bcrypt('Maquino*2030')
         ]);
+        
+        /* Creamos 99 usuario falsos */
+        User::factory(99)->create();
     }
 }

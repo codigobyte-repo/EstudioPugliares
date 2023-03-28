@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    /* 'default' => env('FILESYSTEM_DISK', 'local'), */
+
+    /* Lo cambiamos por un disco personalizado */
+    'default' => env('FILESYSTEM_DISK', 'public_images'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,6 +32,13 @@ return [
     */
 
     'disks' => [
+
+        /* Creamos nuestro propio disco local que apunta a la carpeta public/images */
+        'public_images' => [
+            'driver' => 'local',
+            'root' => public_path('images'),
+            'url' => env('APP_URL').'/images',
+        ],
 
         'local' => [
             'driver' => 'local',
