@@ -193,3 +193,15 @@ particlesJS('particles-js', {
     },
     "retina_detect": true
 });
+
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+       const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+       window.scrollTo({
+          top: sectionTop,
+          behavior: 'smooth'
+       });
+    }
+ }

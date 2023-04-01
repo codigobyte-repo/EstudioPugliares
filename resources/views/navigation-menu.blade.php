@@ -6,8 +6,8 @@
 
         [
             'name' => 'Inicio',
-            'route' => route('inicio'),
-            'active' => request()->routeIs('inicio')
+            'route' => url('/'),
+            'active' => request()->routeIs('/')
         ],
 
         [
@@ -37,13 +37,13 @@
 
 @endphp
 
-<nav x-data="{ open: false }" class="fixed w-full bg-gradient-to-r from-black to-gray-800 z-50">
+<nav x-data="{ open: false }" class="fixed w-full bg-gradient-to-r from-black to-gray-800 z-50 cursor-pointer">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-2">
       
         <!-- Logo -->
         <div class="absolute shrink-0 flex ml-0 mt-2" data-aos="fade-down-right">
-            <a href="{{ route('inicio') }}">
+            <a href="{{ url('/') }}">
                 <x-jet-application-mark class="block h-9 w-auto" />
             </a>
         </div>
@@ -55,13 +55,52 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 xl:flex">
-                    @foreach ($nav_links as $link)
+                    
+                    {{-- Utilizamos la siguiente condiciona para poder redirigirnos en el blog ya que es una pagina externa --}}
+                    @if (request()->route()->getName() == 'blog')
+                        <x-jet-nav-link href="{{ url('/') }}">
+                            Inicio
+                        </x-jet-nav-link>
                         
-                        <x-jet-nav-link href="{{ $link['route'] }}" :active="$link['active']">
-                            {{$link['name']}}
-                        </x-jet-nav-link>                        
+                        <x-jet-nav-link href="{{ url('/') }}#servicios">
+                            Servicios
+                        </x-jet-nav-link>
 
-                    @endforeach
+                        <x-jet-nav-link href="{{ url('/') }}#somos">
+                            Quiénes Somos
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ url('blog') }}" :active="request()->routeIs('blog')">
+                            Blog
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ url('/') }}#contacto">
+                            Contacto
+                        </x-jet-nav-link>
+
+                    @else
+                        <x-jet-nav-link href="{{ url('/') }}">
+                            Inicio
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="javascript:void(0);" onclick="scrollToSection('servicios')">
+                            Servicios
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="javascript:void(0);" onclick="scrollToSection('somos')">
+                            Quiénes Somos
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ url('blog') }}">
+                            Blog
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="javascript:void(0);" onclick="scrollToSection('contacto')">
+                            Contacto
+                        </x-jet-nav-link>
+                    @endif
+
+                    
 
                     <!--Hoverable Link-->
                     <div class="hoverable hover:bg-gray-600 hover:text-white">

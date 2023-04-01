@@ -3,6 +3,10 @@ body {
     cursor: crosshair;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .color-texto {
   color: rebeccapurple;
 }
@@ -72,4 +76,40 @@ body {
     position: relative;
     top: -1px;
   }
+
+  /* Estilos para las imagenes del blog */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  .post-image-alt:before {
+    content: attr(data-post-image-alt);
+  }
+
+span#servicios:before {
+  display: block;
+  content: " ";
+  height: 150px;
+  margin: -150px 0 0 0;
+}
+span#somos:before {
+  display: block;
+  content: " ";
+  height: 150px;
+  margin: -150px 0 0 0;
+}
+span#contacto:before {
+  display: block;
+  content: " ";
+  height: 150px;
+  margin: -150px 0 0 0;
+}
 

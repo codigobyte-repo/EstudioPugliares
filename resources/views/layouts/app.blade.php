@@ -4,13 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="En Estudio Pugliares, ofrecemos servicios contables profesionales para empresas y particulares. Nuestro equipo de expertos contadores trabaja diligentemente para proporcionar a nuestros clientes soluciones contables y financieras personalizadas, incluyendo contabilidad básica, preparación de impuestos, planificación fiscal estratégica y consultoría financiera. Nuestro objetivo es proporcionar un servicio excepcional a nuestros clientes de manera ética y responsable. ¡Contáctenos hoy para obtener más información y ver cómo podemos ayudarlo a alcanzar sus objetivos financieros!">
-        <meta name="keywords" content="Servicios contables, Planificación tributaria, Auditoría Financiera, Contabilidad empresarial, Asesoría fiscal, Preparación de impuestos, Consultoría financiera, Planificación fiscal estratégica, Gestión de finanzas personales, Servicios de nómina, Auditoría financiera"> 
-
-        <title>Estudio Pugliares - Servicios Contables</title>
+        <meta name="keywords" content="Servicios contables, Planificación tributaria, Auditoría Financiera, Contabilidad empresarial, Asesoría fiscal, Preparación de impuestos, Consultoría financiera, Planificación fiscal estratégica, Gestión de finanzas personales, Servicios de nómina, Auditoría financiera">
+        <title>{{ isset($title) ? $title : 'Servicios Contables | Servicios Online | Contabilidad en Línea y Presencial Para Empresas | Estudio Pugliares' }}</title>
+        <meta name="description" content="{{ isset($description) ? $description : 'En Estudio Pugliares, ofrecemos servicios contables profesionales para empresas y particulares. Nuestro equipo de expertos contadores trabaja diligentemente para proporcionar a nuestros clientes soluciones contables y financieras personalizadas, incluyendo contabilidad básica, preparación de impuestos, planificación fiscal estratégica y consultoría financiera. Nuestro objetivo es proporcionar un servicio excepcional a nuestros clientes de manera ética y responsable. ¡Contáctenos hoy para obtener más información y ver cómo podemos ayudarlo a alcanzar sus objetivos financieros!' }}">
+        <meta name="robots" content="index, follow">
 
         <!-- Fonts -->
-        {{-- <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap">
 
         <!-- Scripts -->
