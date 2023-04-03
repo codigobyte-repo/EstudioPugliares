@@ -217,8 +217,12 @@
                                     {{ __('Manage Account') }}
                                 </div>
 
+                                <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                                    Panel Administrativo
+                                </x-jet-dropdown-link>
+
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
+                                    Perfil
                                 </x-jet-dropdown-link>
 
                                 <div class="border-t border-gray-100"></div>
@@ -229,7 +233,7 @@
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                             @click.prevent="$root.submit();">
-                                        {{ __('Log Out') }}
+                                        Cerrar sesión
                                     </x-jet-dropdown-link>
                                 </form>
                             </x-slot>
@@ -288,8 +292,12 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
+                <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('profile.show')">
+                    Panel administrativo
+                </x-jet-responsive-nav-link>
+
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    Perfil
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
