@@ -3,7 +3,7 @@
 @section('title', 'Panel administrativo - Estudio Pugliares')
 
 @section('content_header')
-    <h1>Lista de Categorías</h1>
+    <h1>Listado de etiquetas</h1>
 @stop
 
 @section('content')
@@ -13,11 +13,11 @@
             {{ session('success') }}
         </div>
     @endif
-    
+
     <div class="card">
 
         <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('admin.categories.create')}}">Agregar nueva categoría</a>
+            <a class="btn btn-primary" href="{{ route('admin.tags.create')}}">Agregar nueva etiqueta</a>
         </div>
 
         <div class="card-body">
@@ -26,20 +26,22 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
+                        <th>Color</th>
                         <th colspan="2">Operaciones</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($tags as $tag)
                         <tr>
-                            <td>{{ $category->id }}</td>
-                            <td>{{ $category->name }}</td>
+                            <td>{{ $tag->id }}</td>
+                            <td>{{ $tag->name }}</td>
+                            <td style="background-color: {{ $tag->color }};"></td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.edit', $category) }}">Editar</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.tags.edit', $tag) }}">Editar</a>
                             </td>
                             <td width="10px">
-                                <form action="{{ route('admin.categories.destroy', $category)}}" method="POST">
+                                <form action="{{ route('admin.tags.destroy', $tag)}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
@@ -53,3 +55,15 @@
     </div>
 
 @stop
+
+@section('css')
+    <style>
+        .red { background-color: red; }
+        .yellow { background-color: yellow; }
+        .green { background-color: green; }
+        .blue { background-color: blue; }
+        .indigo { background-color: indigo; }
+        .purple { background-color: purple; }
+        .pink { background-color: pink; }
+    </style>
+@endsection
