@@ -14,7 +14,7 @@
         <h1 class="text-4xl font-bold text-gray-700">{{ $post->name }}</h1>
 
         <div class="text-lg text-gray-500 md:mb-2 mx-auto">
-            <h2>{{ $post->extract }}</h2>
+            <h2>{!! $post->extract !!}</h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -22,11 +22,11 @@
             {{-- contenido principal --}}
             <div class="lg:col-span-2">
                 <figure>
-                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::disk('public_images')->url($post->image->url) }}" alt="{{ $post->name }}">
+                    <img class="w-full h-80 object-cover object-center" src="{{ isset($post->image) ? Storage::disk('public_images')->url($post->image->url) : asset('images/background-default.png') }}" alt="{{ $post->name }}">
                 </figure>
 
                 <div class="text-base leading-7 text-gray-500 mt-4 whitespace-normal">
-                    {{ $post->body }}
+                    {!! $post->body !!}
                 </div>
 
             </div>
@@ -39,7 +39,13 @@
                     @foreach ($similares as $similar)
                         <li class="mb-4">
                             <a class="flex" href="{{ route('posts.show', $similar) }}">
-                                <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ Storage::disk('public_images')->url($similar->image->url) }}" alt="{{ $similar->name }}">
+                                
+                                @if($similar->image)
+                                    <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ Storage::disk('public_images')->url($similar->image->url) }}" alt="{{ $similar->name }}">
+                                @else
+                                <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ asset('images/background-default.png') }}" alt="{{ $similar->name }}">
+                                @endif
+
                                 <span class="ml-2 text-gray-600">{{ $similar->name }}</span>
                             </a>
                         </li>

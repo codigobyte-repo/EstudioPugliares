@@ -25,16 +25,17 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
+                        <th>Nombre de la etiqueta</th>
                         <th>Color</th>
                         <th colspan="2">Operaciones</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php $counter=1;?>
                     @foreach ($tags as $tag)
                         <tr>
-                            <td>{{ $tag->id }}</td>
+                            <td><?php echo $counter;?></td>
                             <td>{{ $tag->name }}</td>
                             <td style="background-color: {{ $tag->color }};"></td>
                             <td width="10px">
@@ -48,6 +49,7 @@
                                 </form>
                             </td>
                         </tr>
+                    <?php $counter++;?>
                     @endforeach
                 </tbody>
             </table>

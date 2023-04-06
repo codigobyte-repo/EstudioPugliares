@@ -19,8 +19,8 @@ return new class extends Migration
             
             $table->string('name');
             $table->string('slug');
-            $table->string('extract');
-            $table->longText('body');
+            $table->string('extract')->nuallable();
+            $table->longText('body')->nuallable();
             /* En el modelo post esta relacionado el valor de BORRADOR y PUBLICADO en una CONST */
             $table->enum('status', [Post::BORRADOR, Post::PUBLICADO])->default(Post::BORRADOR);
 

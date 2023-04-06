@@ -25,15 +25,16 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
+                        <th>Nombre de la categoría</th>
                         <th colspan="2">Operaciones</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php $counter=1;?>
                     @foreach ($categories as $category)
                         <tr>
-                            <td>{{ $category->id }}</td>
+                            <td><?php echo $counter;?></td>
                             <td>{{ $category->name }}</td>
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.edit', $category) }}">Editar</a>
@@ -46,6 +47,7 @@
                                 </form>
                             </td>
                         </tr>
+                    <?php $counter++;?>
                     @endforeach
                 </tbody>
             </table>

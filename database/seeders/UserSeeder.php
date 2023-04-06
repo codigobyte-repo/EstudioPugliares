@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('Maquino*2030')
         ]);
         
-        /* Creamos 99 usuario falsos */
-        User::factory(99)->create();
+        /* Creamos 9 usuario falsos */
+        User::factory(9)->create();
     }
 }

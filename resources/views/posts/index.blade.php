@@ -10,7 +10,7 @@
 
             @foreach($posts as $post)
             <article class="w-full h-80 bg-cover bg-center relative @if($loop->first) md:col-span-2 @endif shadow-lg rounded-lg overflow-hidden"
-                style="background-image: url({{ Storage::disk('public_images')->url($post->image->url) }})">
+                style="background-image: url({{ isset($post->image) ? Storage::disk('public_images')->url($post->image->url) : asset('images/background-default.png') }})">
                 
                 <div class="w-full h-full px-8 flex flex-col justify-center">
 

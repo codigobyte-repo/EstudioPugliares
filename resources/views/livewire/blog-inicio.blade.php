@@ -23,7 +23,7 @@
         
             @foreach($posts as $post)
                 <article class="w-full h-80 bg-cover bg-center relative rounded-tl-lg rounded-br-lg"
-                    style="background-image: url({{ Storage::disk('public_images')->url($post->image->url) }})">
+                    style="background-image: url({{ isset($post->image) ? Storage::disk('public_images')->url($post->image->url) : asset('images/background-default.png') }})">
                     <div class="w-full h-full px-8 flex flex-col justify-center">
 
                         <div>

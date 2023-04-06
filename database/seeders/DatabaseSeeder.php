@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserSeeder::class);
         $this->call(ServiceSeeder::class);
-
+        
         Category::factory(4)->create();
         Tag::factory(8)->create();
 
