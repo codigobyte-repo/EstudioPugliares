@@ -97,7 +97,7 @@
 
                         </div>
                         
-                        <p>IMPORTANTE: Las imágenes en blanco no permiten que el título de la publicación se vea de forma clara. 
+                        <p>IMPORTANTE: Las imágenes en blanco no permiten que el título de la publicación se vea de forma clara. Utiliza imagenes con fondos oscuros. 
                         El formato de las imágenes debe ser .JPG y/o .PNG.
                         </p>
 
@@ -174,23 +174,30 @@
 
 @section('js')
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    {{-- Incorporamos Ckeditor5 --}}
+    <script src="{{asset('assets/plugins/ckeditor5/ckeditor.js')}}"></script>
 
     <script>
         ClassicEditor
-            .create( document.querySelector( '#extract' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+        .create( document.querySelector( '#extract' ), {
+                toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ], // solo las opciones que deseas
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
     </script>
 
     <script>
         ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>    
+        .create( document.querySelector( '#body' ),{
+            ckfinder:{
+                uploadUrl: '{{ route('ckeditor.upload').'?_token='.csrf_token()}}'
+            }
+        })
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>   
 
     <script>
         // Obtener los elementos de los inputs

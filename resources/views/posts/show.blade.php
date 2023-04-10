@@ -25,7 +25,7 @@
                     <img class="w-full h-80 object-cover object-center" src="{{ isset($post->image) ? Storage::disk('public_images')->url($post->image->url) : asset('images/background-default.png') }}" alt="{{ $post->name }}">
                 </figure>
 
-                <div class="text-base leading-7 text-gray-500 mt-4 whitespace-normal">
+                <div class="text-base leading-7 text-gray-500 mt-4 whitespace-normal prose lg:prose-xl">
                     {!! $post->body !!}
                 </div>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditorController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,5 @@ Route::get('/logout', function () {
     // Lógica de redirección personalizada aquí
     return redirect('/inicio');
 })->middleware(['web']);
+
+Route::post('/upload', [EditorController::class, 'upload'])->name('ckeditor.upload');
