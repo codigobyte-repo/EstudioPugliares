@@ -7,7 +7,6 @@
     <div class="container mx-auto py-28">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
             @foreach($posts as $post)
             <article class="w-full h-80 bg-cover bg-center relative @if($loop->first) md:col-span-2 @endif shadow-lg rounded-lg overflow-hidden"
                 style="background-image: url({{ isset($post->image) ? Storage::disk('public_images')->url($post->image->url) : asset('images/background-default.png') }})">

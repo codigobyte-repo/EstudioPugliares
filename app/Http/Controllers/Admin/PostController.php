@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-
-use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -51,7 +49,7 @@ class PostController extends Controller
     /* 
         StorePostRequest es una regla de validación personalizada.
      */
-    public function store(StorePostRequest $request)
+    public function store(PostRequest $request)
     {
         $post = Post::create($request->all());
 
@@ -100,7 +98,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        /* Si a laravel collective le pasamos un objeto no va a entender el tipo de dato por eso no podemos pasar
+        Category::all() ya que pasa los valores en formato objeto {} pluck genera un array y sólo toma el valor del campo name y además 
+        hay que indicarle que propiedad del objeto es la llave, en este caso id*/
+        $categories = Category::pluck('name', 'id');
+
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -110,9 +114,40 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        /* Si se está enviando una imagen la guardamos */
+        if ($request->file('file')) {
+
+            /* Guardamos la imagen en la carpeta public/images/posts */
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $path = 'posts';        
+            $url = Storage::disk('public_images')->put($path, $file);
+
+            if ($post->image) {
+                Storage::delete($post->image->url);
+                
+                $post->image()->update([
+                    'url' => $url
+                ]);
+            }else{
+                $post->image()->create([
+                    'url' => $url
+                ]);
+            }
+
+        }
+
+        /* sync envía los id de la setiquetas a la taba post-tag pero si hay un duplicado no lo registra */
+        if ($request->tags) {
+            $post->tags()->sync($request->tags);
+        }
+
+        return redirect()->route('admin.posts.index')->with('success', 'Publicación actualizada correctamente');
+
     }
 
     /**
