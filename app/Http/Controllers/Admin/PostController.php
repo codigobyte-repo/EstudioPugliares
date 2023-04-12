@@ -50,7 +50,7 @@ class PostController extends Controller
         StorePostRequest es una regla de validación personalizada.
      */
     public function store(PostRequest $request)
-    {
+    {        
         $post = Post::create($request->all());
 
         /* Si se está enviando una imagen la guardamos */
@@ -65,8 +65,26 @@ class PostController extends Controller
             $post->image()->create([
                 'url' => $url
             ]);
-
         }
+
+        /* Guardamos las imagenes que estan en CKEDIOR */
+        if (isset($request['body']) && !empty($request['body'])) {
+            $re_extractImages = '/src=["\']([^ ^"^\']*)["\']/ims';
+            preg_match_all($re_extractImages, $request['body'], $matches);
+            $images = $matches[1];
+        
+            $post->image()->createMany(
+                collect($images)->map(function ($image) use ($post) {
+                    $imageName = pathinfo($image, PATHINFO_BASENAME);
+                    $imageUrl = 'posts/' . $post->id . '/' . $imageName;
+        
+                    return [
+                        'url' => $imageUrl,
+                    ];
+                })->toArray()
+            );
+        }
+
 
         /* Para crear el valor de tags tabla de muchos a muchos utilizamos attach
             attach entiende que debe guardar el id del post junto con los id de las etiquetas tags
@@ -158,6 +176,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('success', 'Publicación eliminada correctamente');
     }
 }
