@@ -20,7 +20,7 @@
             </div>
             
             <div class="mb-2">
-                <input wire:model='whatsapp' class="w-full mb-4 px-3 py-4 border rounded-lg" type="email" placeholder="Whatsapp">
+                <input wire:model='whatsapp' class="w-full mb-4 px-3 py-4 border rounded-lg" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Whatsapp">
                 @error('whatsapp') <span class="text-red-600 text-xs font-semibold"> {{ $message }} </span> @enderror
             </div>
             

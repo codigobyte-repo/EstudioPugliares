@@ -33,16 +33,24 @@ class CaptchaComponent extends Component
         $this->result = $this->num1 + $this->num2;
     }
 
+    protected $rules = [
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'whatsapp' => 'required|numeric',
+            'mensaje' => 'required|string|max:1000',
+            'captcha' => 'required|numeric',
+    ];
+
     public function submit()
     {
-        $this->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'email' => 'required|email',
-            'whatsapp' => 'required',
-            'mensaje' => 'required',
-            'captcha' => 'required|numeric',
-        ]);
+        $this->validate();
+
+        // Evitar inyección SQL
+        if (preg_match('/\b(union|select|insert|update|delete)\b/i', $this->mensaje)) {
+            session()->flash('message', 'El mensaje no puede contener palabras reservadas.');
+            return;
+        }
 
         if ($this->captcha == $this->result) {
 

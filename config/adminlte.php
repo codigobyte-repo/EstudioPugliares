@@ -342,6 +342,19 @@ return [
             'icon' => 'far fa-fw fa-file',
             'active' => ['admin/posts/create']
         ],
+        ['header' => 'OPCIONES DEL SITIO WEB'],
+        [
+            'text' => 'Contactos',
+            'route'  => 'admin.contacts.index',
+            'icon' => 'far fa-fw fa-envelope',
+            'active' => ['admin/contacts*']
+        ],
+        [
+            'text' => 'Ver Sitio Web',
+            'url'  => '/',
+            'icon' => 'far fa-fw fa-clipboard',
+            'target' => '_blank',
+        ],
     ],
 
     /*
