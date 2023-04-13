@@ -29,6 +29,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre de la publicación</th>
+                            <th>Estado</th>
+                            <th>Ver Post</th>
                             <th colspan="2">Operaciones</th>
                         </tr>
                     </thead>
@@ -39,6 +41,16 @@
                             <tr>
                                 <td><?php echo $counter;?></td>
                                 <td>{{ $post->name }}</td>
+                                @if ($post->status == 1)
+                                    <td><span class="badge badge-warning">Borrador</span></td>
+                                @elseif($post->status == 2)
+                                    <td><span class="badge badge-success">Publicado</span></td>
+                                @endif
+                                <td>
+                                    <a target="to_blank" href="{{ route('posts.show', $post) }}">
+                                        {{ $post->name }}
+                                    </a>
+                                </td>
                                 <td width="10px">
                                     <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.edit', $post) }}">Editar</a>
                                 </td>

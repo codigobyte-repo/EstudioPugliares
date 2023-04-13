@@ -116,6 +116,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        /* Creamos una policy:  Si el usuario es el autor del post, se le permite 
+        realizar la acción de editar. Si no es el autor, se le deniega el permiso y se le niega la acción. */
+        $this->authorize('author', $post);
+
         /* Si a laravel collective le pasamos un objeto no va a entender el tipo de dato por eso no podemos pasar
         Category::all() ya que pasa los valores en formato objeto {} pluck genera un array y sólo toma el valor del campo name y además 
         hay que indicarle que propiedad del objeto es la llave, en este caso id*/
@@ -134,6 +138,11 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+
+        /* Creamos una policy:  Si el usuario es el autor del post, se le permite 
+        realizar la acción de actualizar. Si no es el autor, se le deniega el permiso y se le niega la acción. */
+        $this->authorize('author', $post);
+
         $post->update($request->all());
 
         /* Si se está enviando una imagen la guardamos */
@@ -176,6 +185,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        /* Creamos una policy:  Si el usuario es el autor del post, se le permite 
+        realizar la acción de eliminar. Si no es el autor, se le deniega el permiso y se le niega la acción. */
+        $this->authorize('author', $post);
+
         $post->delete();
 
         return redirect()->route('admin.posts.index')->with('success', 'Publicación eliminada correctamente');
