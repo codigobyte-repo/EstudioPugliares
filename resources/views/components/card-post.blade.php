@@ -10,7 +10,7 @@
         </h1>
 
         <div class="text-gray-700 text-base">
-            <h2>{{ $post->extract }}</h2>
+            <h2>{!! $post->extract !!}</h2>
         </div>
     </div>
 

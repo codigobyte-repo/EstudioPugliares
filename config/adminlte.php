@@ -315,39 +315,49 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-digital-tachograph fa-fw',
+            'can'           => 'admin.home',
         ],
-        ['header' => 'account_settings'],
+        [
+            'text' => 'Usuarios',
+            'route'  => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-users',
+            'active' => ['admin/users/index'],
+            'can' => 'admin.users.index',
+        ],
         [
             'text' => 'Categorías de la publicación',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
-            'active' => ['admin/categories*']
+            'active' => ['admin/categories*'],
+            'can' => 'admin.categories.index',
         ],
         [
             'text' => 'Etiquetas de la publicación',
             'route'  => 'admin.tags.index',
             'icon' => 'far fa-fw fa-bookmark',
-            'active' => ['admin/tags*']
+            'active' => ['admin/tags*'],
+            'can' => 'admin.tags.index',
         ],
-        ['header' => 'OPCIONES DEL BLOG'],
         [
             'text' => 'Publicaciones',
             'route'  => 'admin.posts.index',
             'icon' => 'far fa-fw fa-clipboard',
-            'active' => ['admin/posts/index']
+            'active' => ['admin/posts/index'],
+            'can' => 'admin.posts.index',
         ],
         [
             'text' => 'Crear nueva publicación',
             'route'  => 'admin.posts.create',
             'icon' => 'far fa-fw fa-file',
-            'active' => ['admin/posts/create']
+            'active' => ['admin/posts/create'],
+            'can' => 'admin.posts.create',
         ],
-        ['header' => 'OPCIONES DEL SITIO WEB'],
         [
             'text' => 'Contactos',
             'route'  => 'admin.contacts.index',
             'icon' => 'far fa-fw fa-envelope',
-            'active' => ['admin/contacts*']
+            'active' => ['admin/contacts*'],
+            'can' => 'admin.contacts.index',
         ],
         [
             'text' => 'Ver Sitio Web',

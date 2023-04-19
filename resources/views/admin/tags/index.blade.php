@@ -16,9 +16,11 @@
 
     <div class="card">
 
-        <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('admin.tags.create')}}">Agregar nueva etiqueta</a>
-        </div>
+        @can('admin.tags.create')    
+            <div class="card-header">
+                <a class="btn btn-primary" href="{{ route('admin.tags.create')}}">Agregar nueva etiqueta</a>
+            </div>
+        @endcan
 
         <div class="card-body">
             <table class="table table-striped">
@@ -27,7 +29,9 @@
                         <th>ID</th>
                         <th>Nombre de la etiqueta</th>
                         <th>Color</th>
-                        <th colspan="2">Operaciones</th>
+                        @can('admin.tags.edit')
+                            <th colspan="2">Operaciones</th>
+                        @endcan
                     </tr>
                 </thead>
 
@@ -38,16 +42,22 @@
                             <td><?php echo $counter;?></td>
                             <td>{{ $tag->name }}</td>
                             <td style="background-color: {{ $tag->color }};"></td>
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{ route('admin.tags.edit', $tag) }}">Editar</a>
-                            </td>
-                            <td width="10px">
-                                <form action="{{ route('admin.tags.destroy', $tag)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td>
+
+                            @can('admin.tags.edit')
+                                <td width="10px">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.tags.edit', $tag) }}">Editar</a>
+                                </td>
+                            @endcan
+
+                            @can('admin.tags.destroy')
+                                <td width="10px">
+                                    <form action="{{ route('admin.tags.destroy', $tag)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                </td>
+                            @endcan
                         </tr>
                     <?php $counter++;?>
                     @endforeach

@@ -16,9 +16,11 @@
     
     <div class="card">
 
-        <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('admin.categories.create')}}">Agregar nueva categoría</a>
-        </div>
+        @can('admin.categories.create')   
+            <div class="card-header">
+                <a class="btn btn-primary" href="{{ route('admin.categories.create')}}">Agregar nueva categoría</a>
+            </div>
+        @endcan
 
         <div class="card-body">
             <table class="table table-striped">
@@ -26,7 +28,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre de la categoría</th>
-                        <th colspan="2">Operaciones</th>
+                        @can('admin.categories.create')
+                            <th colspan="2">Operaciones</th>
+                        @endcan
                     </tr>
                 </thead>
 
@@ -36,16 +40,22 @@
                         <tr>
                             <td><?php echo $counter;?></td>
                             <td>{{ $category->name }}</td>
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.edit', $category) }}">Editar</a>
-                            </td>
-                            <td width="10px">
-                                <form action="{{ route('admin.categories.destroy', $category)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td>
+                            
+                            @can('admin.categories.edit')
+                                <td width="10px">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.edit', $category) }}">Editar</a>
+                                </td>
+                            @endcan
+
+                            @can('admin.categories.destroy')
+                                <td width="10px">
+                                    <form action="{{ route('admin.categories.destroy', $category)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                </td>
+                            @endcan
                         </tr>
                     <?php $counter++;?>
                     @endforeach

@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'name' => 'Martin Aquino',
             'email' => 'maquino@codigobyte.com.ar',
             'password' => bcrypt('Maquino*2030')
-        ]);
+        ])->assignRole('Admin');
         
         /* Creamos 9 usuario falsos */
         User::factory(9)->create();
