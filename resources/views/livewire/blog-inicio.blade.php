@@ -5,7 +5,7 @@
 
     <div class="text-center">
                 
-        <h1 class="sm:text-3xl md:text-6xl font-bold color-texto">Últimas <span class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">NOTICIAS</span></h1>
+        <h1 class="text-3xl md:text-6xl font-bold color-texto">Últimas <span class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">NOTICIAS</span></h1>
 
         {{-- Efecto CSS public -> asset -> css -> efectos.css--}}
         <div class="circle-container mt-4">
@@ -18,7 +18,7 @@
         <p class="mt-2 text-lg text-gray-600">"¡Te mantenemos informados con las últimas novedades contables!"</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-24 py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 md:mx-24 py-24">
 
         
             @foreach($posts as $post)
@@ -33,7 +33,7 @@
                         </div>
 
                         <h1 class="text-4xl text-white leading-8 font-bold">
-                            <a href="">
+                            <a href="{{ route('posts.show', $post) }}">
                                 {{ $post->name }}
                             </a>
                         </h1>

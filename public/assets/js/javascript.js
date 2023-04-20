@@ -41,7 +41,7 @@ escribirTexto();
 
 /* Glider */
 new Glider(document.querySelector('.glider'), {
-    slidesToShow: 1.5,
+    slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
     dots: '.dots',

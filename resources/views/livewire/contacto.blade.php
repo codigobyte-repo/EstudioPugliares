@@ -5,7 +5,7 @@
 
             <div class="text-center">
                 
-                <h1 class="sm:text-3xl md:text-6xl font-bold color-texto">Contactar <span class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">EQUIPO</span></h1>
+                <h1 class="text-3xl md:text-6xl font-bold color-texto">Contactar <span class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">EQUIPO</span></h1>
 
                 {{-- Efecto CSS public -> asset -> css -> efectos.css--}}
                 <div class="circle-container mt-4">

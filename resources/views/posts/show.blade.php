@@ -29,7 +29,7 @@
             <div>
                 <p class="border-t border-b border-gray-200 py-2 inline-flex items-center text-sm text-gray-500 font-semibold">
                     Escrito por:
-                    <img src="{{ $post->user->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="rounded-full h-10 w-10 mx-2 object-cover">
+                    <img src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}" class="rounded-full h-10 w-10 mx-2 object-cover">
                     <span class="border-r-2 border-gray-200 pr-2 mr-2 font-semibold">{{ $post->user->name }}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -92,19 +92,21 @@
             <div class="grid gap-4 lg:grid-cols-2">
 
                 @foreach ($similares as $similar)
-                <div class="mb-6 md:mb-0">
-                    <h5 class="text-base mb-2 font-medium">{{ $similar->name }}</h5>
+                <a href="{{ route('posts.show', $similar) }}">
+                    <div class="mb-6 md:mb-0">
+                        <h5 class="text-base mb-2 font-medium">{{ $similar->name }}</h5>
 
-                    @if($similar->image)
-                        <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ Storage::disk('public_images')->url($similar->image->url) }}" alt="{{ $similar->name }}">
-                    @else
-                        <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ asset('images/background-default.png') }}" alt="{{ $similar->name }}">
-                    @endif
+                        @if($similar->image)
+                            <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ Storage::disk('public_images')->url($similar->image->url) }}" alt="{{ $similar->name }}">
+                        @else
+                            <img class="w-40 h-25 object-cover object-center rounded-lg" src="{{ asset('images/background-default.png') }}" alt="{{ $similar->name }}">
+                        @endif
 
-                    {{-- <p class="mb-4 text-sm">
-                        {{ $similar->extract }}
-                    </p> --}}
-                </div>
+                        {{-- <p class="mb-4 text-sm">
+                            {{ $similar->extract }}
+                        </p> --}}
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>

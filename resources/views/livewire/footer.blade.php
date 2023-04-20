@@ -7,7 +7,7 @@
 
         <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
-            <div class="md:max-w-md lg:col-span-2">
+            <div class="md:max-w-md lg:col-span-2 text-center">
               <a href="{{ url('/') }}" aria-label="Go home" title="Company" class="inline-flex items-center">
                     <x-jet-application-mark class="block h-2 w-auto" />
               </a>
@@ -17,90 +17,80 @@
                 </p>
               </div>
             </div>
-            <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-              <div>
+            <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-3 md:grid-cols-3">
+              <div class="hidden md:block">
                 <p class="font-semibold tracking-wide text-gray-400">
-                  Category
+                  Categorías
                 </p>
                 <ul class="mt-2 space-y-2">
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">News</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">World</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Games</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">References</a>
-                  </li>
+                  @foreach ($categories as $category)
+                    <li>
+                      <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">{{ $category->name }}</a>
+                    </li>
+                  @endforeach
                 </ul>
               </div>
-              <div>
-                <p class="font-semibold tracking-wide text-gray-400">Cherry</p>
+              <div class="hidden md:block">
+                <p class="font-semibold tracking-wide text-gray-400">Etiquetas</p>
                 <ul class="mt-2 space-y-2">
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Web</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">eCommerce</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Business</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Entertainment</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Portfolio</a>
-                  </li>
+                  @foreach ($tags as $tag)
+                    <li>
+                      <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">{{ $tag->name }}</a>
+                    </li>
+                  @endforeach
                 </ul>
               </div>
-              <div>
-                <p class="font-semibold tracking-wide text-gray-400">Apples</p>
+              <div class="hidden md:block">
+                <p class="font-semibold tracking-wide text-gray-400">Últimas noticias</p>
                 <ul class="mt-2 space-y-2">
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Media</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Brochure</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Nonprofit</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Educational</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Projects</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p class="font-semibold tracking-wide text-gray-400">
-                  Business
-                </p>
-                <ul class="mt-2 space-y-2">
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Infopreneur</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Personal</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Wiki</a>
-                  </li>
-                  <li>
-                    <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">Forum</a>
-                  </li>
+                  @foreach ($posts as $post)
+                    <li>
+                      <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">{{ Str::limit($post->name, $limit = 15, $end = '...') }}
+                      </a>
+                    </li>
+                  @endforeach
                 </ul>
               </div>
             </div>
           </div>
+
+          <div class="grid grid-cols-1 gap-5 row-gap-8 lg:col-span-3 md:grid-cols-3 my-4 pl-8 md:pl-0">
+              
+            <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+              <img class="mx-auto my-4 w-14 h-14" src="{{asset('images/icons/navigation.png')}}" alt="Sunset in the mountains">
+              <div class="px-6 py-4">
+                <div class="text-center font-bold text-xl mb-2">Dirección</div>
+                <p class="text-gray-700 text-base text-center font-semibold">
+                  Talcahuano 386, Banfield
+                </p>
+              </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+              <img class="mx-auto my-4 w-14 h-14" src="{{asset('images/icons/correo-electronico.png')}}" alt="Sunset in the mountains">
+              <div class="px-6 py-4">
+                <div class="text-center font-bold text-xl mb-2">Correo electrónico</div>
+                <p class="text-gray-700 text-base text-center font-semibold">
+                  administracion@estudiopugliares.com.ar
+                </p>
+              </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+              <img class="mx-auto my-4 w-14 h-14" src="{{asset('images/icons/telefono.png')}}" alt="Sunset in the mountains">
+              <div class="px-6 py-4">
+                <div class="text-center font-bold text-xl mb-2">Teléfonos</div>
+                <p class="text-gray-700 text-base text-center font-semibold">
+                  +54 4202-9255 / +54 4248-9290
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div class="flex flex-col justify-between pt-5 pb-10 border-t border-white sm:flex-row">
+
             <p class="text-sm text-gray-100">
-              © Copyright <?php echo date('Y') ?>. All rights reserved || Developed by <a class="font-bold hover:text-blue-600" target="to_blank" href="https//www.codigobyte.com.ar/">Código Byte</a>
+              © Copyright <?php echo date('Y') ?>. Derechos reservados || Diseñado por <a class="font-bold hover:text-blue-600" target="to_blank" href="https//www.codigobyte.com.ar/">Código Byte</a>
             </p>
             <div class="flex items-center mt-4 space-x-4 sm:mt-0">
               <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">

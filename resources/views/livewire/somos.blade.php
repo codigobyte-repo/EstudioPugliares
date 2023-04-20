@@ -4,7 +4,7 @@
         <div class="max-w-500 mx-auto px-4 sm:px-6 lg:px-8 mb-16">
 
             <div class="text-center">
-                <h1 class="sm:text-3xl md:text-6xl font-bold color-texto"> <span class="text-white">Quiénes</span> <span
+                <h1 class="text-3xl md:text-6xl font-bold color-texto"> <span class="text-white">Quiénes</span> <span
                         class="bg-gradient-to-br from-purple-400 to-pink-600 p-2 text-white">SOMOS</span></h1>
 
                 {{-- Efecto CSS public -> asset -> css -> efectos.css--}}
