@@ -3,7 +3,7 @@
 
         <div class="w-full mx-auto px-4">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comentarios ({{ $countComments }})</h2>
+                <h2 class="text-lg lg:text-2xl font-bold text-gray-600">Comentarios ({{ $countComments }})</h2>
             </div>
           
             {{-- caja principal --}}

@@ -78,9 +78,14 @@
 
         </div>
 
+        {{-- Sistema de subscripcion --}}
+        @livewire('subscribe-form')
+        {{-- Fin Sistema de subscripcion --}}
+        
+
         {{-- Sistema de comentarios --}}
         @livewire('comments', ['post_id' => $post->id])
-        {{-- Sistema de comentarios --}}
+        {{-- Fin Sistema de comentarios --}}
 
     </div>
 
