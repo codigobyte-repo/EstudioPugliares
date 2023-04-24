@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -52,16 +53,55 @@ class PostController extends Controller
             /* Guardamos la imagen en la carpeta public/images/posts */
             $file = $request->file('file');
             $filename = $file->getClientOriginalName();
-            $path = 'posts';        
+            $path = 'posts';
             $url = Storage::disk('public_images')->put($path, $file);
+
+            
+            /* Intervention Image */
+            $ruta = public_path('images/' . $url);
+
+            $InterventionImg = Image::make($file);
+
+            $InterventionImg->resize(1200, null, function ($constraint){
+                $constraint->aspectRatio();
+            });
+            $InterventionImg->save($ruta);
 
             $post->image()->create([
                 'url' => $url
             ]);
         }
 
-        /* Guardamos las imagenes que estan en CKEDIOR */
+        /* Guardamos las imagenes que estan en CKEDITOR */
+        /* Este tramo funciona pero no reduce las imagenes de ckeditor, si lo cambiamos por el de abajo comentado funciona igual */
         if (isset($request['body']) && !empty($request['body'])) {
+            $re_extractImages = '/src=["\']([^ ^"^\']*)["\']/ims';
+            preg_match_all($re_extractImages, $request['body'], $matches);
+            $images = $matches[1];
+        
+            foreach ($images as $image) {
+                $imageName = pathinfo($image, PATHINFO_BASENAME);
+                $imageUrl = 'posts/' . $post->id . '/' . $imageName;
+        
+                if (file_exists(public_path('images/' . $imageUrl))) {
+                    $InterventionImg = Image::make(public_path('images/' . $imageUrl));
+        
+                    $InterventionImg->resize(1200, null, function ($constraint){
+                        $constraint->aspectRatio();
+                    });
+        
+                    $InterventionImg->save(public_path('images/' . $imageUrl));
+                }
+        
+                $post->image()->create([
+                    'url' => $imageUrl
+                ]);
+            }
+        }
+
+        /* Este codigo anda pero no usa intervention image */
+        /* Guardamos las imagenes que estan en CKEDITOR */
+        /* if (isset($request['body']) && !empty($request['body'])) {
             $re_extractImages = '/src=["\']([^ ^"^\']*)["\']/ims';
             preg_match_all($re_extractImages, $request['body'], $matches);
             $images = $matches[1];
@@ -76,7 +116,7 @@ class PostController extends Controller
                     ];
                 })->toArray()
             );
-        }
+        } */
 
 
         /* Para crear el valor de tags tabla de muchos a muchos utilizamos attach
@@ -118,10 +158,22 @@ class PostController extends Controller
         if ($request->file('file')) {
 
             /* Guardamos la imagen en la carpeta public/images/posts */
+            /* Guardamos la imagen en la carpeta public/images/posts */
             $file = $request->file('file');
             $filename = $file->getClientOriginalName();
-            $path = 'posts';        
+            $path = 'posts';
             $url = Storage::disk('public_images')->put($path, $file);
+
+            
+            /* Intervention Image */
+            $ruta = public_path('images/' . $url);
+
+            $InterventionImg = Image::make($file);
+
+            $InterventionImg->resize(1200, null, function ($constraint){
+                $constraint->aspectRatio();
+            });
+            $InterventionImg->save($ruta);
 
             if ($post->image) {
                 Storage::delete($post->image->url);
