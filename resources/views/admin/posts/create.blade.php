@@ -10,11 +10,15 @@
 
     <div class="card">
         <div class="card-body">
-        {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
+        {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true, 'onsubmit' => 'showLoading()']) !!}
             
                 @include('admin.posts.partials.form')
 
             {!! Form::submit('Crear publicación', ['class' => 'btn btn-primary mb-2']) !!}
+
+            <div id="loading" style="display: none;">
+                <img src="/images/loading.gif" alt="Loading...">
+            </div>
 
             @if (session('success'))
                 <div id="success-alert" class="alert alert-success">
@@ -64,6 +68,17 @@
 @endsection
 
 @section('js')
+
+    <script>
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+        }
+    </script>
+    <script>
+        window.addEventListener('load', function() {
+          document.getElementById("loading").style.display = "none";
+        });
+    </script>
 
     {{-- Incorporamos Ckeditor5 --}}
     <script src="{{asset('assets/plugins/ckeditor5/ckeditor.js')}}"></script>

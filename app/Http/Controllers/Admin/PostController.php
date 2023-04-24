@@ -52,7 +52,6 @@ class PostController extends Controller
 
             /* Guardamos la imagen en la carpeta public/images/posts */
             $file = $request->file('file');
-            $filename = $file->getClientOriginalName();
             $path = 'posts';
             $url = Storage::disk('public_images')->put($path, $file);
 
@@ -98,31 +97,7 @@ class PostController extends Controller
                 ]);
             }
         }
-
-        /* Este codigo anda pero no usa intervention image */
-        /* Guardamos las imagenes que estan en CKEDITOR */
-        /* if (isset($request['body']) && !empty($request['body'])) {
-            $re_extractImages = '/src=["\']([^ ^"^\']*)["\']/ims';
-            preg_match_all($re_extractImages, $request['body'], $matches);
-            $images = $matches[1];
-        
-            $post->image()->createMany(
-                collect($images)->map(function ($image) use ($post) {
-                    $imageName = pathinfo($image, PATHINFO_BASENAME);
-                    $imageUrl = 'posts/' . $post->id . '/' . $imageName;
-        
-                    return [
-                        'url' => $imageUrl,
-                    ];
-                })->toArray()
-            );
-        } */
-
-
-        /* Para crear el valor de tags tabla de muchos a muchos utilizamos attach
-            attach entiende que debe guardar el id del post junto con los id de las etiquetas tags
-            en la tabla posts_tags
-        */
+                
         if ($request->tags) {
             $post->tags()->attach($request->tags);
         }
