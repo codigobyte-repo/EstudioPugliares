@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
+use App\Mail\PostMaillable;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Subscriber;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -101,8 +104,27 @@ class PostController extends Controller
         if ($request->tags) {
             $post->tags()->attach($request->tags);
         }
+        
+        /* Si el estado del post es publicado mandamos el mail */
+        if($request->get('status') == 2) {
+            $this->envioMailsSubscriptores($request->get('name'),$request->get('slug'));
+        }
 
         return redirect()->route('admin.posts.index')->with('success', 'Publicación creada correctamente');
+    }
+
+    /* Mandmaos mail a todos los subscriptores */
+    public function envioMailsSubscriptores($name, $slug)
+    {
+        $count = Subscriber::count();
+
+        if ($count > 0) {
+            $subscriptores = Subscriber::all();
+            
+            foreach ($subscriptores as $subscriptor) {
+                Mail::to($subscriptor->email)->send(new PostMaillable($name,$slug, $subscriptor->name));
+            }
+        }
     }
 
     public function edit(Post $post)
@@ -167,6 +189,11 @@ class PostController extends Controller
         /* sync envía los id de la setiquetas a la taba post-tag pero si hay un duplicado no lo registra */
         if ($request->tags) {
             $post->tags()->sync($request->tags);
+        }
+
+        /* Si el estado del post es publicado mandamos el mail */
+        if($request->get('status') == 2) {
+            $this->envioMailsSubscriptores($request->get('name'),$request->get('slug'));
         }
 
         return redirect()->route('admin.posts.index')->with('success', 'Publicación actualizada correctamente');
