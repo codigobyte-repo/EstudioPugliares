@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\ContactMaillable;
 use Livewire\Component;
 use App\Models\Contacto;
+use Illuminate\Support\Facades\Mail;
 
 class CaptchaComponent extends Component
 {
@@ -62,11 +64,12 @@ class CaptchaComponent extends Component
                 'mensaje' => $this->mensaje
             ]);
 
+            Mail::to('maquino@codigobyte.com.ar')->send(new ContactMaillable($this->nombre, $this->apellido, $this->email, $this->whatsapp, $this->mensaje));
+            
             session()->flash('message', 'Solicitud enviada correctamente, muchas gracias.');
     	    $this->resetInput();
 
         } else {
-            // Captcha inválido, mostrar un mensaje de error
             $this->valor = "Por favor vuelva a verificar el captcha";
             return;
         }

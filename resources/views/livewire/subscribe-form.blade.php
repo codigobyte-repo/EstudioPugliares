@@ -1,5 +1,5 @@
 <div>
-    <div class="mt-12 mx-auto text-center bg-gray-200 px-4 py-8 rounded-lg shadow-lg">
+    <section class="mt-12 mx-auto text-center bg-gray-200 px-4 py-8 rounded-lg shadow-lg">
 
         <h2 class="text-lg lg:text-2xl font-bold text-gray-600 mb-4 flex flex-wrap items-center justify-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -47,5 +47,5 @@
             </form>
         </div>
 
-    </div>
+    </section>
 </div>
