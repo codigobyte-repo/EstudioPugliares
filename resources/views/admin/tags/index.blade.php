@@ -51,7 +51,7 @@
 
                             @can('admin.tags.destroy')
                                 <td width="10px">
-                                    <form action="{{ route('admin.tags.destroy', $tag)}}" method="POST">
+                                    <form action="{{ route('admin.tags.destroy', $tag)}}" method="POST" id="delete-form">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
@@ -79,3 +79,25 @@
         .pink { background-color: pink; }
     </style>
 @endsection
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        document.getElementById('delete-form').addEventListener('submit', function(e) {
+            var form = this;
+            e.preventDefault();
+            swal({
+                title: "¿Estás seguro?",
+                text: "Una vez eliminado, no se puede recuperar este suscriptor",
+                icon: "warning",
+                buttons: ["Cancelar", "Eliminar"],
+                dangerMode: true,
+            }).then(function(willDelete) {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+@stop

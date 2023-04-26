@@ -360,6 +360,13 @@ return [
             'can' => 'admin.posts.create',
         ],
         [
+            'text' => 'Subscriptores',
+            'route'  => 'admin.subscribers.index',
+            'icon' => 'far fa-fw fa-envelope',
+            'active' => ['admin/subscribers*'],
+            'can' => 'admin.subscribers.index',
+        ],
+        [
             'text' => 'Contactos',
             'route'  => 'admin.contacts.index',
             'icon' => 'far fa-fw fa-envelope',

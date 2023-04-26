@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
 
 /* Los midleware en este caso se puede agregar aquí ya que aplica el mismo permiso para todos */
@@ -18,6 +19,8 @@ Route::resource('users', UserController::class)->only(['index', 'edit', 'update'
 Route::resource('roles', RoleController::class)->names('admin.roles');
 
 Route::resource('contacts', ContactsController::class)->names('admin.contacts');
+
+Route::resource('subscribers', SubscriberController::class)->names('admin.subscribers');
 
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 
