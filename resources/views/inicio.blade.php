@@ -78,7 +78,9 @@
     <!-- Fin Sección de Contacto -->
 
     {{-- Ultimas noticias del Blog --}}
+    <span id="noticias">
     @livewire('blog-inicio')
+    </span>
     {{-- Ultimas noticias del Blog --}}
     
     <!-- Pie de Página -->
@@ -91,7 +93,7 @@
     ejecute el js en ese momento --}}
     @push('script')
 
-        <script src="/assets/js/javascript.js"></script>
+        {{-- <script src="/assets/js/javascript.js"></script> --}}
 
     @endpush
 

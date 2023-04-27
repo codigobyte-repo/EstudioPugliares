@@ -69,6 +69,8 @@
             AOS.init();
         </script>
 
+        <script src="/assets/js/javascript.js"></script>
+
         @stack('script')
         
     </body>
