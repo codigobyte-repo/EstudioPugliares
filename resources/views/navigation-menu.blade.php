@@ -86,7 +86,7 @@
                                     </button>
                                 @else
                                     <span class="inline-flex rounded-md">
-                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
+                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-800 hover:text-gray-200 focus:outline-none focus:bg-gray-500 active:bg-gray-500 transition">
                                             {{ Auth::user()->name }}
 
                                             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -99,8 +99,8 @@
 
                             <x-slot name="content">
                                 <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
+                                <div class="block px-4 py-2 text-xs text-white">
+                                    Perfil administrativo
                                 </div>
 
                                 @can('admin.home')
@@ -127,10 +127,10 @@
                             </x-slot>
                         </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Acceder</a>
+                        <a href="{{ route('login') }}" class="text-sm text-white bg-gray-600 px-2 py-2 rounded-lg">Acceder</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrarse</a>
+                            <a href="{{ route('register') }}" class="ml-4 mr-8 bg-gray-600 px-2 py-2 rounded-lg text-sm text-white">Registrarse</a>
                         @endif
                     @endauth
 
