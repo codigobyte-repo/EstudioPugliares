@@ -10,7 +10,7 @@
     </x-slot>
     {{-- Fin de los parametros --}}
 
-    <div class="container py-10 px-4 pt-48">
+    <div class="container py-10 px-4 pt-20 md:pt-48">
 
         <div class="mb-4">
             @foreach ($post->tags as $tag)

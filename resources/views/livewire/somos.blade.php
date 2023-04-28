@@ -1,4 +1,4 @@
-<div>
+<div id="somos">
     <section class="bg-gradient-to-b from-purple-400 to-pink-600  py-2">
 
         <div class="max-w-500 mx-auto px-4 sm:px-6 lg:px-8 mb-16">

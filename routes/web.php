@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ServiciosController;
+use App\Http\Livewire\MasServicios;
 use Illuminate\Support\Facades\Route;
-
+use Livewire\Livewire;
 
 Route::get('/', function () {
     return view('inicio');
@@ -27,7 +29,12 @@ Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
 
 Route::get('/blog', [PostController::class, 'index'])->name('blog');
 
+
 Route::get('/servicios', [ServiciosController::class, 'index'])->name('servicios');
+Route::get('/detalle/{services}', [ServiciosController::class, 'show'])->name('servicio.detalle');
+/* llamada a livewire */
+Route::get('mas-servicios', MasServicios::class)->name('mas-servicios');
+
 
 Route::get('/equipo', [EquipoController::class, 'index'])->name('equipo');
 

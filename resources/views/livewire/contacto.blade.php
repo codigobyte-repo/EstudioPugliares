@@ -1,4 +1,4 @@
-<div>
+<div id="contacto">
     <section class="bg-white py-2">
 
         <div class="px-4 sm:px-6 lg:px-8 mb-16">

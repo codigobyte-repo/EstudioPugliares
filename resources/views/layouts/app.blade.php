@@ -72,6 +72,11 @@
         <script src="/assets/js/javascript.js"></script>
 
         @stack('script')
+
+        <a aria-label="Chat on WhatsApp" href="https://wa.me/+541133610903" target="to_blank" class="fixed z-50 bottom-4 right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 focus:bg-green-600 transition-all">
+            <img alt="WhatsApp" src="{{asset('images/whatsapp.svg')}}" class="w-8 h-8" />
+        </a>
+          
         
     </body>
 </html>
