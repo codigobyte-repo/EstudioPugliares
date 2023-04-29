@@ -332,6 +332,13 @@ return [
             /* 'can' => 'admin.users.index', */
         ],
         [
+            'text' => 'Servicios',
+            'route'  => 'admin.servicios.index',
+            'icon' => 'fab fa-fw fa-buffer',
+            'active' => ['admin/servicios*'],
+            'can' => 'admin.servicios.index',
+        ],
+        [
             'text' => 'Categorías de la publicación',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',

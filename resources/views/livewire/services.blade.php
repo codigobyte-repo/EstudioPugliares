@@ -96,7 +96,7 @@
                 <span class="text-2xl text-gray-300 font-bold"> >>> </span> 
                 {{-- <a href="{{ url('ver-servicios') }}" class="px-5 py-4 text-2xl font-medium text-center text-white transition duration-500 ease-in-out transform bg-gradient-to-br from-purple-400 to-pink-600 lg:px-10 rounded-full">Ver más servicios</a>  --}}
                 <a href="{{ url('mas-servicios') }}" class="relative px-10 py-4 font-bold text-black group">
-                    <span class="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-red-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                    <span class="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-gradient-to-br from-purple-400 to-pink-600 group-hover:translate-x-0 group-hover:translate-y-0"></span>
                     <span class="absolute inset-0 w-full h-full border-4 border-black"></span>
                     <span class="relative">Ver más servicios</span>
                 </a>

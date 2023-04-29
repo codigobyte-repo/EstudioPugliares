@@ -18,5 +18,5 @@ class Services extends Model
     const INDEPENDIENTE = 2;
     const PROFESIONAL = 3;
 
-    protected $fillable = ['titulo', 'descripcion', 'descripcion_larga', 'slug', 'descuento', 'planes', 'precio_tachado', 'precio'];
+    protected $fillable = ['titulo', 'descripcion_corta', 'descripcion_larga', 'slug', 'descuento', 'planes', 'precio_tachado', 'precio'];
 }

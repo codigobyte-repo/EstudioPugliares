@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactsController;
@@ -23,6 +24,8 @@ Route::resource('contacts', ContactsController::class)->names('admin.contacts');
 Route::resource('subscribers', SubscriberController::class)->names('admin.subscribers');
 
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
+
+Route::resource('servicios', ServiceController::class)->except('show')->names('admin.servicios');
 
 Route::resource('tags', TagController::class)->names('admin.tags');
 
