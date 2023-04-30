@@ -73,7 +73,7 @@
                 <p class="text-gray-700 text-base text-center font-semibold" id="email">
                   administracion@estudiopugliares.com.ar
                 </p>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded mt-4" onclick="copyToClipboard()">Copiar dirección de correo electrónico</button>
+                <button wire:click.prevent="copy" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded mt-4" onclick="copyToClipboard()">{{ $buttonText }}</button>
               </div>
             </div>
 
