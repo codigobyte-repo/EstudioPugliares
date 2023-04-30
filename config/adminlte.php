@@ -329,7 +329,7 @@ return [
             'route'  => 'admin.roles.index',
             'icon' => 'fas fa-fw fa-cog',
             'active' => ['admin/roles/index'],
-            /* 'can' => 'admin.users.index', */
+            'can' => 'admin.users.index',
         ],
         [
             'text' => 'Servicios',
