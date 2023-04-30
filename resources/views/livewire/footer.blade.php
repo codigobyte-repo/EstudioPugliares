@@ -57,7 +57,7 @@
           <div class="grid grid-cols-1 gap-5 row-gap-8 lg:col-span-3 md:grid-cols-3 my-4 pl-8 md:pl-0">
               
             <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-              <img class="mx-auto my-4 w-14 h-14" src="{{asset('images/icons/navigation.png')}}" alt="Sunset in the mountains">
+              <img class="mx-auto my-4 w-8 h-8 mt-6" src="{{asset('images/icons/navigation.png')}}" alt="Dirección">
               <div class="px-6 py-4">
                 <div class="text-center font-bold text-xl mb-2">Dirección</div>
                 <p class="text-gray-700 text-base text-center font-semibold">
@@ -67,17 +67,18 @@
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-              <img class="mx-auto my-4 w-14 h-14" src="{{asset('images/icons/correo-electronico.png')}}" alt="Sunset in the mountains">
-              <div class="px-6 py-4">
+              <img class="mx-auto my-4 w-8 h-8 mt-6" src="{{asset('images/icons/correo-electronico.png')}}" alt="Correo elctrónico">
+              <div class="px-6 py-4 text-center">
                 <div class="text-center font-bold text-xl mb-2">Correo electrónico</div>
-                <p class="text-gray-700 text-base text-center font-semibold">
+                <p class="text-gray-700 text-base text-center font-semibold" id="email">
                   administracion@estudiopugliares.com.ar
                 </p>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded mt-4" onclick="copyToClipboard()">Copiar dirección de correo electrónico</button>
               </div>
             </div>
 
             <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-              <img class="mx-auto my-4 w-14 h-14" src="{{asset('images/icons/telefono.png')}}" alt="Sunset in the mountains">
+              <img class="mx-auto my-4 w-8 h-8 mt-6" src="{{asset('images/icons/telefono.png')}}" alt="Teléfono">
               <div class="px-6 py-4">
                 <div class="text-center font-bold text-xl mb-2">Teléfonos</div>
                 <p class="text-gray-700 text-base text-center font-semibold">
@@ -90,7 +91,7 @@
           <div class="flex flex-col justify-between pt-5 pb-10 border-t border-white sm:flex-row">
 
             <p class="text-sm text-gray-100">
-              © Copyright <?php echo date('Y') ?>. Derechos reservados || Diseñado por <a class="font-bold hover:text-blue-600" target="to_blank" href="https//www.codigobyte.com.ar/">Código Byte</a>
+              © Copyright <?php echo date('Y') ?>. Derechos reservados || Desarrollado por <a class="font-bold hover:text-blue-600" target="to_blank" href="https//www.codigobyte.com.ar/">Código Byte</a>
             </p>
             <div class="flex items-center mt-4 space-x-4 sm:mt-0">
               <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">

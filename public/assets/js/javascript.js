@@ -107,5 +107,17 @@ new simpleParallax(image, {
 window.addEventListener('scroll', function() {
     var nav = document.querySelector('nav');
     nav.classList.toggle('scroll-nav', window.scrollY > 0);
-  });
+});
+
+
+function copyToClipboard() {
+    const email = document.getElementById("email");
+    const textToCopy = email.textContent;
+    navigator.clipboard.writeText(textToCopy).then(function() {
+      console.log("Dirección de correo electrónico copiada al portapapeles");
+    }, function() {
+      console.error("Error al copiar dirección de correo electrónico al portapapeles");
+    });
+}
+
   

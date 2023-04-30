@@ -18,12 +18,13 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 xl:flex uppercase">
                     
                     {{-- Utilizamos la siguiente condicional para poder redirigirnos en el blog y en el post ya que son paginas externas --}}
-                    @if (request()->route()->getName() == 'blog' || str_contains(request()->route()->uri(), 'posts'))
+                    @if (request()->route()->getName() == 'blog' || request()->route()->getName() == 'mas-servicios' || request()->route()->getName() == 'servicio.detalle' || str_contains(request()->route()->uri(), 'posts'))
+                    
                         <x-jet-nav-link href="{{ url('/') }}">
                             Inicio
                         </x-jet-nav-link>
                         
-                        <x-jet-nav-link href="{{ url('/') }}#servicios">
+                        <x-jet-nav-link href="{{ url('mas-servicios') }}">
                             Servicios
                         </x-jet-nav-link>
 
@@ -48,7 +49,7 @@
                             Inicio
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="javascript:void(0);" onclick="scrollToSection('servicios')">
+                        <x-jet-nav-link href="{{ url('mas-servicios') }}">
                             Servicios
                         </x-jet-nav-link>
 
@@ -154,12 +155,12 @@
         <div class="pt-2 pb-3 space-y-1">
 
                 {{-- Utilizamos la siguiente condicional para poder redirigirnos en el blog y en el post ya que son paginas externas --}}
-                @if (request()->route()->getName() == 'blog' || str_contains(request()->route()->uri(), 'posts'))
+                @if (request()->route()->getName() == 'blog' || request()->route()->getName() == 'mas-servicios' || request()->route()->getName() == 'servicio.detalle' || str_contains(request()->route()->uri(), 'posts'))
                     <x-jet-responsive-nav-link href="{{ url('/') }}">
                         Inicio
                     </x-jet-responsive-nav-link>
                     
-                    <x-jet-responsive-nav-link href="{{ url('/') }}#servicios">
+                    <x-jet-responsive-nav-link href="{{ url('mas-servicios') }}">
                         Servicios
                     </x-jet-responsive-nav-link>
 
@@ -184,7 +185,7 @@
                         Inicio
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="javascript:void(0);" onclick="scrollToSection('servicios')">
+                    <x-jet-responsive-nav-link href="{{ url('mas-servicios')}}">
                         Servicios
                     </x-jet-responsive-nav-link>
 

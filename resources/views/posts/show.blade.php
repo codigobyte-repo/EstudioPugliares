@@ -10,7 +10,7 @@
     </x-slot>
     {{-- Fin de los parametros --}}
 
-    <div class="container py-10 px-4 pt-20 md:pt-48">
+    <div class="container py-10 px-4 pt-32 md:pt-48">
 
         <div class="mb-4">
             @foreach ($post->tags as $tag)
@@ -117,9 +117,9 @@
                         </div>
 
                         @if($similar->image)
-                            <img class="w-40 h-25 object-cover object-center rounded-lg mx-auto" src="{{ Storage::disk('public_images')->url($similar->image->url) }}" alt="{{ $similar->name }}">
+                            <img class="w-80 h-45 object-cover object-center rounded-lg mx-auto" src="{{ Storage::disk('public_images')->url($similar->image->url) }}" alt="{{ $similar->name }}">
                         @else
-                            <img class="w-40 h-25 object-cover object-center rounded-lg mx-auto" src="{{ asset('images/background-default.png') }}" alt="{{ $similar->name }}">
+                            <img class="w-80 h-45 object-cover object-center rounded-lg mx-auto" src="{{ asset('images/background-default.png') }}" alt="{{ $similar->name }}">
                         @endif
                     </div>
                 </a>
