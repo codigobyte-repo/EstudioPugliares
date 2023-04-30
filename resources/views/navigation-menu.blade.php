@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="fixed w-full bg-gradient-to-r from-black to-gray-800 z-50 cursor-pointer mb-4">
+<nav x-data="{ open: false }" class="fixed w-full bg-transparent z-50 cursor-pointer mb-4 scroll-nav">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto px-2">
       
@@ -15,7 +15,7 @@
             <div class="flex mx-auto xl:pl-28">
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 xl:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 xl:flex uppercase">
                     
                     {{-- Utilizamos la siguiente condicional para poder redirigirnos en el blog y en el post ya que son paginas externas --}}
                     @if (request()->route()->getName() == 'blog' || str_contains(request()->route()->uri(), 'posts'))
@@ -127,10 +127,10 @@
                             </x-slot>
                         </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-white bg-gray-600 px-2 py-2 rounded-lg">Acceder</a>
+                        <a href="{{ route('login') }}" class="text-sm text-white bg-gray-600 hover:bg-gray-500 px-4 py-2">Acceder</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 mr-8 bg-gray-600 px-2 py-2 rounded-lg text-sm text-white">Registrarse</a>
+                            <a href="{{ route('register') }}" class="ml-4 mr-8 bg-gray-600 hover:bg-gray-500 px-4 py-2 text-sm text-white">Registrarse</a>
                         @endif
                     @endauth
 

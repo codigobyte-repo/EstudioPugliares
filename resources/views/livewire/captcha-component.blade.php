@@ -44,7 +44,7 @@
                 
                 <div class="text-center">
                     
-                    <button type="button" wire:click="submit" class="block w-full bg-purple-500 text-white text-lg font-light py-4 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <button type="button" wire:click="submit" class="block w-full bg-gradient-to-r from-slate-500 to-slate-800 hover:from-slate-700 hover:to-slate-900 text-yellow-500 text-lg font-semibold py-4 px-4 rounded focus:outline-none focus:shadow-outline">
                         Solicitar Asesoramiento
                     </button>
                     

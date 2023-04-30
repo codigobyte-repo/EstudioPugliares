@@ -149,3 +149,13 @@
     width: 18%; 
     left: 5%;    
 }
+
+.scroll-nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.glider-prev, .glider-next {
+    font-size: 85px !important;
+    color: #000;
+}
