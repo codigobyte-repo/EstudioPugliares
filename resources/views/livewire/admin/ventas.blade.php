@@ -12,10 +12,6 @@
     <div class="card">
 
         <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('admin.posts.create')}}">Agregar nueva publicación</a>
-        </div>
-
-        <div class="card-header">
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-search"></i></span>
