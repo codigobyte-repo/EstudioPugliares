@@ -1,4 +1,5 @@
 <div>
+
     <section class="pt-40">
 
         <div class="max-w-500 mx-auto px-4 sm:px-6 lg:px-8 mb-16">
@@ -75,7 +76,7 @@
                                                 </span>
 
                                                 <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-center">
-                                                    <a href="#" class="relative inline-flex items-center px-12 py-0 md:py-3 overflow-hidden text-lg font-medium text-gray-800 border-2 border-gray-500 rounded-full hover:text-white group hover:bg-gray-50">
+                                                    <a href="{{ route('servicio.detalle', $empresarial) }}" class="relative inline-flex items-center px-12 py-0 md:py-3 overflow-hidden text-lg font-medium text-gray-800 border-2 border-gray-500 rounded-full hover:text-white group hover:bg-gray-50">
                                                         <span class="absolute left-0 block w-full h-0 transition-all bg-green-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                                         <span class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                                                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -160,7 +161,7 @@
                                                 </span>
 
                                                 <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-center">
-                                                    <a href="#" class="relative inline-flex items-center px-12 py-0 md:py-3 overflow-hidden text-lg font-medium text-gray-800 border-2 border-gray-500 rounded-full hover:text-white group hover:bg-gray-50">
+                                                    <a href="{{ route('servicio.detalle', $independiente) }}" class="relative inline-flex items-center px-12 py-0 md:py-3 overflow-hidden text-lg font-medium text-gray-800 border-2 border-gray-500 rounded-full hover:text-white group hover:bg-gray-50">
                                                         <span class="absolute left-0 block w-full h-0 transition-all bg-green-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                                         <span class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                                                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -244,7 +245,7 @@
                                                 </span>
 
                                                 <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-center">
-                                                    <a href="#" class="relative inline-flex items-center px-12 py-0 md:py-3 overflow-hidden text-lg font-medium text-gray-800 border-2 border-gray-500 rounded-full hover:text-white group hover:bg-gray-50">
+                                                    <a href="{{ route('servicio.detalle', $profesional) }}" class="relative inline-flex items-center px-12 py-0 md:py-3 overflow-hidden text-lg font-medium text-gray-800 border-2 border-gray-500 rounded-full hover:text-white group hover:bg-gray-50">
                                                         <span class="absolute left-0 block w-full h-0 transition-all bg-green-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                                         <span class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                                                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -286,6 +287,7 @@
         </div>
 
     </section>
+
 
     <script>
         new Glider(document.querySelector('.gliderService'), {
@@ -330,89 +332,89 @@
         });
     </script>
 
-<script>
-    new Glider(document.querySelector('.gliderIndependiente'), {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: true,
-        dots: '.dots',
-        arrows: {
-        prev: '.glider-prev',
-        next: '.glider-next'
-        },
-        responsive: [
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1.5,
-                    slidesToScroll: 1,
-                }
+    <script>
+        new Glider(document.querySelector('.gliderIndependiente'), {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable: true,
+            dots: '.dots',
+            arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
             },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1.5,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2.5,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 1280,
-                settings: {
-                    slidesToShow: 3.5,
-                    slidesToScroll: 3,
-                }
-            },
-        ]
-    });
-</script>
+            responsive: [
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1.5,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1.5,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2.5,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 1280,
+                    settings: {
+                        slidesToShow: 3.5,
+                        slidesToScroll: 3,
+                    }
+                },
+            ]
+        });
+    </script>
 
-<script>
-    new Glider(document.querySelector('.gliderProfesionales'), {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: true,
-        dots: '.dots',
-        arrows: {
-        prev: '.glider-prev',
-        next: '.glider-next'
-        },
-        responsive: [
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1.5,
-                    slidesToScroll: 1,
-                }
+    <script>
+        new Glider(document.querySelector('.gliderProfesionales'), {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable: true,
+            dots: '.dots',
+            arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
             },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1.5,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2.5,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 1280,
-                settings: {
-                    slidesToShow: 3.5,
-                    slidesToScroll: 3,
-                }
-            },
-        ]
-    });
-</script>
+            responsive: [
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1.5,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1.5,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2.5,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 1280,
+                    settings: {
+                        slidesToShow: 3.5,
+                        slidesToScroll: 3,
+                    }
+                },
+            ]
+        });
+    </script>
 </div>

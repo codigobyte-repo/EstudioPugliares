@@ -109,6 +109,14 @@
                                         Panel Administrativo
                                     </x-jet-dropdown-link>
                                 @endcan
+                                
+                                @if (auth()->user()->orders()->exists())
+                                
+                                    <x-jet-dropdown-link href="{{ route('pedidos') }}">
+                                        Mis compras
+                                    </x-jet-dropdown-link>
+                                    
+                                @endif
 
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     Perfil
@@ -277,6 +285,7 @@
             </div>
         </div>
     </div>
+
     
 </nav>
 

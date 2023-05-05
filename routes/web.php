@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\EditorController;
+use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\WebhooksController;
 use App\Http\Livewire\MasServicios;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -35,6 +37,19 @@ Route::get('/detalle/{services}', [ServiciosController::class, 'show'])->name('s
 /* llamada a livewire */
 Route::get('mas-servicios', MasServicios::class)->name('mas-servicios');
 
+/* Rutas mercado pago */
+/* Evaluar esta funcionalidad */
+Route::get('servicios/{order}', [ServiciosController::class, 'order'])->name('order');
+
+Route::post('notification/{services}', [ServiciosController::class, 'notification'])->name('notification');
+
+Route::get('servicios/{services}/pay', [ServiciosController::class, 'pay'])->name('pay');
+
+Route::get('servicios/{order}/approved', [ServiciosController::class, 'approved'])->name('approved');
+
+Route::get('pedidos', [PedidosController::class, 'index'])->name('pedidos');
+
+Route::post('webhooks', WebhooksController::class);
 
 Route::get('/equipo', [EquipoController::class, 'index'])->name('equipo');
 
