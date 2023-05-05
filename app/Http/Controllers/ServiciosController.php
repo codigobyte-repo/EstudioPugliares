@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VentasMaillable;
 use App\Models\Order;
 use App\Models\Services;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use MercadoPago\Config\Json;
 
 class ServiciosController extends Controller
@@ -68,10 +70,13 @@ class ServiciosController extends Controller
         $response = json_decode($response);
 
         $status = $response->status;
+        
+        Mail::to('maquino@codigobyte.com.ar')->send(new VentasMaillable($services->titulo, $services->precio));
 
         if($status == 'approved'){
             return redirect()->route('pedidos');
         }
+
 
         /* if($status == 'approved'){
             $order = new Order();

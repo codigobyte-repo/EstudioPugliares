@@ -10,7 +10,10 @@
 
         // Crea un objeto de preferencia
         $preference = new MercadoPago\Preference();
+        
+        //Enviamos una notificación de pago a la ruta  agregamos la nueva orden asi
         $preference->notification_url = route('notification', $services);
+
         // Crea un ítem en la preferencia    
         // $SERVICE ES LA VARIABLE QUE ENVIAMOS DEL CONTROLADOR CON LOS DATOS DEL SERVICIO.
         $item = new MercadoPago\Item();
@@ -20,8 +23,8 @@
 
         $preference->back_urls = array(
             "success" => route('pay', $services),
-            "failure" => "http://www.tu-sitio/failure",
-            "pending" => "http://www.tu-sitio/pending"
+            /* "failure" => "http://www.tu-sitio/failure",
+            "pending" => "http://www.tu-sitio/pending" */
         );
         $preference->auto_return = "approved";
 
