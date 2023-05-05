@@ -322,7 +322,7 @@ return [
             'route'  => 'admin.ventas.index',
             'icon' => 'far fa-chart-bar',
             'active' => ['admin/ventas*'],
-            /* 'can' => 'admin.servicios.index', */
+            'can' => 'admin.ventas.index',
         ],
         [
             'text' => 'Usuarios',

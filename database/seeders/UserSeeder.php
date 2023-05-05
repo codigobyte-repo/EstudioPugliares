@@ -15,13 +15,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        
+        /* Creamos 9 usuario falsos */
+        User::factory(9)->create();
+
         User::create([
             'name' => 'Martin Aquino',
             'email' => 'maquino@codigobyte.com.ar',
             'password' => bcrypt('Maquino*2030')
         ])->assignRole('Admin');
         
-        /* Creamos 9 usuario falsos */
-        User::factory(9)->create();
     }
 }

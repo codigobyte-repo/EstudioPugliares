@@ -32,4 +32,4 @@ Route::resource('tags', TagController::class)->names('admin.tags');
 
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');
 
-Route::resource('ventas', VentasController::class)->except('show')->names('admin.ventas');
+Route::resource('ventas', VentasController::class)->only('index')->names('admin.ventas');
