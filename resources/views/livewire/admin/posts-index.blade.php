@@ -24,48 +24,50 @@
         @if($posts->count())
 
             <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre de la publicación</th>
-                            <th>Estado</th>
-                            <th>Ver Post</th>
-                            <th colspan="2">Operaciones</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php $counter=1;?>
-                        @foreach ($posts as $post)
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td><?php echo $counter;?></td>
-                                <td>{{ $post->name }}</td>
-                                @if ($post->status == 1)
-                                    <td><span class="badge badge-warning">Borrador</span></td>
-                                @elseif($post->status == 2)
-                                    <td><span class="badge badge-success">Publicado</span></td>
-                                @endif
-                                <td>
-                                    <a target="to_blank" href="{{ route('posts.show', $post) }}">
-                                        {{ $post->name }}
-                                    </a>
-                                </td>
-                                <td width="10px">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.edit', $post) }}">Editar</a>
-                                </td>
-                                <td width="10px">
-                                    <form action="{{ route('admin.posts.destroy', $post)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                    </form>
-                                </td>
+                                <th>ID</th>
+                                <th>Nombre de la publicación</th>
+                                <th>Estado</th>
+                                <th>Ver Post</th>
+                                <th colspan="2">Operaciones</th>
                             </tr>
-                        <?php $counter++;?>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            <?php $counter=1;?>
+                            @foreach ($posts as $post)
+                                <tr>
+                                    <td><?php echo $counter;?></td>
+                                    <td>{{ $post->name }}</td>
+                                    @if ($post->status == 1)
+                                        <td><span class="badge badge-warning">Borrador</span></td>
+                                    @elseif($post->status == 2)
+                                        <td><span class="badge badge-success">Publicado</span></td>
+                                    @endif
+                                    <td>
+                                        <a target="to_blank" href="{{ route('posts.show', $post) }}">
+                                            {{ $post->name }}
+                                        </a>
+                                    </td>
+                                    <td width="10px">
+                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.edit', $post) }}">Editar</a>
+                                    </td>
+                                    <td width="10px">
+                                        <form action="{{ route('admin.posts.destroy', $post)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php $counter++;?>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="card-footer">

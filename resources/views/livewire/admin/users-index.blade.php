@@ -20,31 +20,33 @@
         @if($users->count())
 
             <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre de usuario</th>
-                            <th>Mail</th>
-                            <th colspan="2">Operaciones</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php $counter=1;?>
-                        @foreach ($users as $user)
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td><?php echo $counter;?></td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td width="10px">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', $user) }}">Cambiar Rol</a>
-                                </td>
+                                <th>ID</th>
+                                <th>Nombre de usuario</th>
+                                <th>Mail</th>
+                                <th colspan="2">Operaciones</th>
                             </tr>
-                        <?php $counter++;?>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            <?php $counter=1;?>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td><?php echo $counter;?></td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td width="10px">
+                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', $user) }}">Cambiar Rol</a>
+                                    </td>
+                                </tr>
+                            <?php $counter++;?>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="card-footer">

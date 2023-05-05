@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VentasController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,5 @@ Route::resource('servicios', ServiceController::class)->except('show')->names('a
 Route::resource('tags', TagController::class)->names('admin.tags');
 
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');
+
+Route::resource('ventas', VentasController::class)->except('show')->names('admin.ventas');

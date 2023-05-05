@@ -318,6 +318,13 @@ return [
             'can'           => 'admin.home',
         ],
         [
+            'text' => 'VENTAS',
+            'route'  => 'admin.ventas.index',
+            'icon' => 'far fa-chart-bar',
+            'active' => ['admin/ventas*'],
+            /* 'can' => 'admin.servicios.index', */
+        ],
+        [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-users',
