@@ -113,3 +113,46 @@ span#contacto:before {
   margin: -150px 0 0 0;
 }
 
+/* @media only screen and (max-width: 768px) {
+  .bg-fixed {
+      background-image: url('asset("/../../../images/background-movile.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .bg-fixed video {
+      display: none;
+  }
+} */
+
+/* si el video no es compatible, se mostrará la imagen de respaldo. En pantallas pequeñas y pantallas invertidas, 
+el video se ocultará y se mostrará la imagen de respaldo en su lugar.  */
+.bg-fixed {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-fixed video {
+  display: block;
+}
+/* Agregar media query para pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+.bg-fixed {
+    background-image: url('/../../../images/background-movile.jpg');
+}
+.bg-fixed video {
+    display: none;
+}
+.bg-fixed img {
+      display: block;
+  }
+}
+/* Agregar media query para pantallas invertidas */
+@media only screen and (max-height: 768px) and (orientation: landscape) {
+  .bg-fixed video {
+      display: none;
+  }
+  .bg-fixed img {
+      display: block;
+  }
+}

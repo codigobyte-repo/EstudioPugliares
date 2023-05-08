@@ -3,6 +3,8 @@
     <div class="bg-fixed">
         <video autoplay muted loop class="w-full h-full object-cover absolute top-0 left-0 z-0">
             <source src="/videos/background.mp4" type="video/mp4">
+            {{-- Si el video no se ve, muestra la imagen --}}
+            <img src="{{ asset('images/background-movile.jpg') }}" alt="Imagen de fondo" />
         </video>
 
 
@@ -13,23 +15,16 @@
                         class="font-extrabold text-transparent sm:text-6xl md:text-8xl bg-clip-text bg-gradient-to-b from-yellow-400 via-yellow-600 to-gray-700">
                         ESTUDIO PUGLIARES
                     </span>
-
-                    {{-- <span class="font-extrabold sm:text-6xl md:text-8xl px-4  text-gradient-to-r from-slate-500 to-slate-800 shadow-md shadow-white">
-                        ESTUDIO PUGLIARES
-                    </span> --}}
-                      
-                    
-                      
                     <br>
                 </h1>
 
                 <!-- Mostrar el texto en LG y tamaños más grandes -->
-                <p class="hidden uppercase xl:block w-auto text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 via-yellow-600 to-gray-700 mt-10 animate__animated animate__backInDown">
-                    Comprometidos con tu <span id="cambio-texto" class="text-white"> Éxito </span> financiero
+                <p class="hidden uppercase xl:block w-auto text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 via-yellow-600 to-gray-700 mt-10 animate__animated animate__backInDown">
+                    Comprometidos con tu <span id="cambio-texto" class="bg-gradient-to-r from-yellow-200 to-yellow-900 bg-clip-text text-transparent font-bold text-4xl"> Éxito </span> financiero
                 </p>
                 <!-- Mostrar el texto en celulares -->
                 <p class="xl:hidden uppercase w-auto text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 via-yellow-600 to-gray-700 mt-4 animate__animated animate__backInDown">
-                    Comprometidos con tu <span class="text-white"> Éxito </span> financiero
+                    Comprometidos con tu <span class="bg-gradient-to-r from-yellow-200 to-yellow-900 bg-clip-text text-transparent font-bold text-3xl"> Éxito </span> financiero
                 </p>
 
             </div>
@@ -38,18 +33,7 @@
     
     @livewire('service')
     
-
-    {{-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="padding-bottom: -2px; z-index: -1; margin-top: -8%">
-        <path fill="#c184fb" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-    </svg>
- --}}
-    
     @livewire('somos')
-    
-
-    {{-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="padding-bottom: -2px; z-index: -1;">
-        <path fill="#db2777" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,154.7C384,181,480,203,576,181.3C672,160,768,96,864,101.3C960,107,1056,181,1152,181.3C1248,181,1344,107,1392,69.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-    </svg> --}}
 
     @livewire('contacto')
     

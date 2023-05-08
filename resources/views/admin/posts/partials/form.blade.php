@@ -87,6 +87,7 @@
             
             <p>IMPORTANTE: Las imágenes en blanco no permiten que el título de la publicación se vea de forma clara. Utiliza imagenes con fondos oscuros. 
             El formato de las imágenes debe ser .JPG y/o .PNG.
+            Si desea usar una imagen blanca la puede oscurecer con la siguiente herramienta Online: <a target="to_blank" href="https://pinetools.com/es/oscurecer-imagen">OSCURECER IMAGEN ONLINE</a>
             </p>
 
         </div>

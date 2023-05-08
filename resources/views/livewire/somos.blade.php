@@ -35,7 +35,7 @@
                                 </p>
                             </div>
 
-                            <div class="-mx-6 lg:col-span-2 lg:mx-0">
+                            <div class="-mx-6 lg:col-span-2 lg:mx-0 hidden md:block">
                                 <div class="swiper-container !overflow-hidden">
                                     <div class="swiper-wrapper">
 

@@ -41,7 +41,8 @@ Route::get('mas-servicios', MasServicios::class)->name('mas-servicios');
 /* Evaluar esta funcionalidad */
 Route::get('servicios/{order}', [ServiciosController::class, 'order'])->name('order');
 
-Route::post('notification/{services}', [ServiciosController::class, 'notification'])->name('notification');
+/* Las notificaciones webhook pareciera que no permiten parametros por eso funcionan. Hay que nalizar este punto */
+//Route::post('notification/{services}', [ServiciosController::class, 'notification'])->name('notification');
 
 Route::get('servicios/{services}/pay', [ServiciosController::class, 'pay'])->name('pay');
 

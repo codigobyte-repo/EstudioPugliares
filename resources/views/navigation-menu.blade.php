@@ -110,7 +110,7 @@
                                     </x-jet-dropdown-link>
                                 @endcan
                                 
-                                @if (auth()->user()->orders()->exists())
+                                @if (auth()->check() && auth()->user()->orders()->exists())
                                 
                                     <x-jet-dropdown-link href="{{ route('pedidos') }}">
                                         Mis compras
@@ -218,71 +218,66 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                    </div>
-                @endif
-            </div>
+            @auth
+            
+                <div class="flex items-center px-4">
+                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                        <div class="shrink-0 mr-3">
+                            <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        </div>
+                    @endif
+                </div>
 
-            <div class="mt-3 space-y-1">
-                <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('profile.show')">
-                    Panel administrativo
-                </x-jet-responsive-nav-link>
-
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    Perfil
-                </x-jet-responsive-nav-link>
-
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
-                    </x-jet-responsive-nav-link>
-                @endif
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}" x-data>
-                    @csrf
-
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
-                    </x-jet-responsive-nav-link>
-                </form>
-
-                <!-- Team Management -->
-                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="border-t border-gray-200"></div>
-
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Manage Team') }}
+                <div class="mt-3 space-y-1">
+                    <!-- Account Management -->
+                    <div class="block px-4 py-2 text-xs text-white">
+                        Perfil administrativo
                     </div>
 
-                    <!-- Team Settings -->
-                    <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                        {{ __('Team Settings') }}
-                    </x-jet-responsive-nav-link>
-
-                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                        <x-jet-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                            {{ __('Create New Team') }}
+                    <!-- Account Management -->
+                    @can('admin.home')
+                        <x-jet-responsive-nav-link href="{{ route('admin.home') }}">
+                            Panel Administrativo
                         </x-jet-responsive-nav-link>
                     @endcan
+                    
+                    @if (auth()->check() && auth()->user()->orders()->exists())
+                    
+                        <x-jet-responsive-nav-link href="{{ route('pedidos') }}">
+                            Mis compras
+                        </x-jet-responsive-nav-link>
+                        
+                    @endif
 
-                    <div class="border-t border-gray-200"></div>
+                    <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                        Perfil
+                    </x-jet-responsive-nav-link>
 
-                    <!-- Team Switcher -->
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Switch Teams') }}
-                    </div>
+                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                            {{ __('API Tokens') }}
+                        </x-jet-responsive-nav-link>
+                    @endif
 
-                    @foreach (Auth::user()->allTeams() as $team)
-                        <x-jet-switchable-team :team="$team" component="jet-responsive-nav-link" />
-                    @endforeach
-                @endif
-            </div>
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}" x-data>
+                        @csrf
+
+                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                            @click.prevent="$root.submit();">
+                            Cerrar sesión
+                        </x-jet-responsive-nav-link>
+                    </form>
+                </div>
+            @else
+                <div class="py-4">
+                    <a href="{{ route('login') }}" class="ml-4 text-sm text-white bg-gray-600 hover:bg-gray-500 px-4 py-2">Acceder</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 mr-8 bg-gray-600 hover:bg-gray-500 px-4 py-2 text-sm text-white">Registrarse</a>
+                    @endif
+                </div>
+            @endauth
         </div>
     </div>
 

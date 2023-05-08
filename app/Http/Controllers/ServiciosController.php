@@ -73,12 +73,11 @@ class ServiciosController extends Controller
         
         Mail::to('maquino@codigobyte.com.ar')->send(new VentasMaillable($services->titulo, $services->precio));
 
-        if($status == 'approved'){
-            return redirect()->route('pedidos');
-        }
-
-
         /* if($status == 'approved'){
+            return redirect()->route('pedidos');
+        } */
+
+        if($status == 'approved'){
             $order = new Order();
             $order->titulo = $services->titulo;
             $order->precio = $services->precio;
@@ -92,7 +91,7 @@ class ServiciosController extends Controller
             $order->save();
 
             return redirect()->route('approved', $order);
-        } */
+        }
     }
 
     public function approved(Order $order)

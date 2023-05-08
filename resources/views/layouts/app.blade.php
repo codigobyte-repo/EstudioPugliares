@@ -8,6 +8,7 @@
         <title>{{ isset($title) ? $title : 'Servicios Contables | Servicios Online | Contabilidad en Línea y Presencial Para Empresas | Estudio Pugliares' }}</title>
         <meta name="description" content="{{ isset($description) ? $description : 'En Estudio Pugliares, ofrecemos servicios contables profesionales para empresas y particulares. Nuestro equipo de expertos contadores trabaja diligentemente para proporcionar a nuestros clientes soluciones contables y financieras personalizadas, incluyendo contabilidad básica, preparación de impuestos, planificación fiscal estratégica y consultoría financiera. Nuestro objetivo es proporcionar un servicio excepcional a nuestros clientes de manera ética y responsable. ¡Contáctenos hoy para obtener más información y ver cómo podemos ayudarlo a alcanzar sus objetivos financieros!' }}">
         <meta name="robots" content="index, follow">
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap">
@@ -66,7 +67,7 @@
 
         @stack('script')
 
-        <a aria-label="Chat on WhatsApp" href="https://wa.me/+541133610903" target="to_blank" class="fixed z-50 bottom-4 right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 focus:bg-green-600 transition-all">
+        <a aria-label="Chat en WhatsApp" href="https://wa.me/+541133610903" target="to_blank" class="fixed z-50 bottom-4 right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 focus:bg-green-600 transition-all">
             <img alt="WhatsApp" src="{{asset('images/whatsapp.svg')}}" class="w-8 h-8" />
         </a>
           

@@ -12,7 +12,8 @@
         $preference = new MercadoPago\Preference();
         
         //Enviamos una notificación de pago a la ruta  agregamos la nueva orden asi
-        $preference->notification_url = route('notification', $services);
+        //Las notificaciones no funcionan hay que ver mejor este punto
+        //$preference->notification_url = route('notification', $services);
 
         // Crea un ítem en la preferencia    
         // $SERVICE ES LA VARIABLE QUE ENVIAMOS DEL CONTROLADOR CON LOS DATOS DEL SERVICIO.

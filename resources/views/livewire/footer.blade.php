@@ -25,7 +25,7 @@
                 <ul class="mt-2 space-y-2">
                   @foreach ($categories as $category)
                     <li>
-                      <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">{{ $category->name }}</a>
+                      <a href="{{ url('category', $category) }}" class="transition-colors duration-300 text-white hover:text-gray-400">{{ $category->name }}</a>
                     </li>
                   @endforeach
                 </ul>
@@ -35,7 +35,7 @@
                 <ul class="mt-2 space-y-2">
                   @foreach ($tags as $tag)
                     <li>
-                      <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">{{ $tag->name }}</a>
+                      <a href="{{ url('tag', $tag) }}" class="transition-colors duration-300 text-white hover:text-gray-400">{{ $tag->name }}</a>
                     </li>
                   @endforeach
                 </ul>
@@ -45,7 +45,7 @@
                 <ul class="mt-2 space-y-2">
                   @foreach ($posts as $post)
                     <li>
-                      <a href="/" class="transition-colors duration-300 text-white hover:text-gray-400">{{ Str::limit($post->name, $limit = 15, $end = '...') }}
+                      <a href="{{ url('posts', $post) }}" class="transition-colors duration-300 text-white hover:text-gray-400">{{ Str::limit($post->name, $limit = 25, $end = '...') }}
                       </a>
                     </li>
                   @endforeach
@@ -54,7 +54,7 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 gap-5 row-gap-8 lg:col-span-3 md:grid-cols-3 my-4 pl-8 md:pl-0">
+          <div class="grid grid-cols-1 gap-5 row-gap-8 md:grid-cols-3 my-4 pl-8 md:pl-0">
               
             <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
               <img class="mx-auto my-4 w-8 h-8 mt-6" src="{{asset('images/icons/navigation.png')}}" alt="Dirección">
@@ -70,8 +70,8 @@
               <img class="mx-auto my-4 w-8 h-8 mt-6" src="{{asset('images/icons/correo-electronico.png')}}" alt="Correo elctrónico">
               <div class="px-6 py-4 text-center">
                 <div class="text-center font-bold text-xl mb-2">Correo electrónico</div>
-                <p class="text-gray-700 text-base text-center font-semibold" id="email">
-                  administracion@estudiopugliares.com.ar
+                <p class="text-gray-700 text-base sm:text-lg md:text-xl text-center font-semibold truncate" id="email">
+                  <span>administracion@ <br /> estudiopugliares.com.ar</span>
                 </p>
                 <button wire:click.prevent="copy" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded mt-4" onclick="copyToClipboard()">{{ $buttonText }}</button>
               </div>
