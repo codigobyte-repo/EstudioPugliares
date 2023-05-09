@@ -36,7 +36,7 @@
                                             {{ $servicio->titulo }}
                                         </h1>
                                         <p class="text-gray-600 text-lg h-full">
-                                            {{ $servicio->descripcion_larga}}
+                                            {{ $servicio->descripcion_corta}}
                                         </p>
                                         <span class="flex flex-col items-center py-10 text-2xl">
                                             {{-- Logica ocultar o mostrar si hay descuento o no --}}

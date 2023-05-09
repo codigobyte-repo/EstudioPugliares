@@ -77,8 +77,21 @@
 
                             @endif 
                             
-                            {{-- Botón de pago Mercado Pago --}}
-                            <div id="wallet_container"></div>
+                            @auth
+                                {{-- Botón de pago Mercado Pago --}}
+                                <div id="wallet_container"></div>
+                            @else
+                                {{-- Loguearse si no está registrado --}}
+                                <div class="flex items-center">
+                                    <a href="{{ route('login') }}" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-gray-400 rounded-lg hover:bg-gray-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                        </svg>                          
+                                        <span class="ml-2">Iniciar sesión para abonar el servicio</span>
+                                    </a>
+                                    <span class="ml-2 text-xs">¿No estás registrado? <a class="text-blue-600 cursor-pointer font-semibold" href="{{ route('register') }}">Registrarse</a></span>
+                                </div>
+                            @endauth
 
                         </span>
                     </article>

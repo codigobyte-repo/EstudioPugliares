@@ -46,14 +46,9 @@ class ServiciosController extends Controller
             $order->precio = $services->precio;
             $order->precio = $services->precio;
             $order->referencia_pago = $payment_id;
-            if(auth()->user()){
-                $order->user_id = auth()->user()->id;
-                $order->save();
-                return redirect()->route('pedidos');
-            }
+            $order->user_id = auth()->user()->id;
             $order->save();
-
-            return redirect()->route('approved', $order);
+            return redirect()->route('pedidos');            
         }
 
         // Responder con un código HTTP 200 para indicar que se ha recibido la notificación correctamente
